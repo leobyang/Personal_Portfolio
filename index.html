@@ -164,14 +164,17 @@
     </style>
 </head>
 
-<body class="font-body text-on-surface antialiased overflow-x-hidden">
+<body class="font-neutraface text-on-surface antialiased overflow-x-hidden">
     <!-- TopNavBar -->
-    <nav
-        class="fixed top-0 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between gap-8 px-6 py-3 w-[calc(100%-2rem)] md:w-max bg-[#180164]/40 backdrop-blur-2xl rounded-full border border-[#FFF0BE]/10 mt-6 shadow-[0_20px_50px_rgba(23,0,99,0.5)]">
-        <div class="text-lg font-bold tracking-widest text-white font-neutraface uppercase whitespace-nowrap">Leo Yang
+    <nav id="main-nav"
+        class="fixed top-0 left-1/2 -translate-x-1/2 z-50 flex items-center px-6 py-3 w-max max-w-[calc(100%-2rem)] bg-[#180164]/40 backdrop-blur-2xl rounded-full border border-[#FFF0BE]/10 mt-6 shadow-[0_20px_50px_rgba(23,0,99,0.5)]">
+        <div id="nav-name" class="overflow-hidden max-w-0 opacity-0 -translate-x-4">
+            <div class="text-lg font-bold tracking-widest text-white font-neutraface uppercase whitespace-nowrap pr-8">
+                Leo Yang
+            </div>
         </div>
         <!-- Desktop Links -->
-        <div class="hidden lg:flex items-center gap-6">
+        <div class="hidden lg:flex items-center gap-6 lg:pr-8">
             <a class="font-neutraface tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all"
                 href="#experience">Experience</a>
             <a class="font-neutraface tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all"
@@ -223,7 +226,7 @@
 
             <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center relative z-10">
                 <div class="lg:col-span-8">
-                    <h1
+                    <h1 id="hero-name"
                         class="font-custom uppercase text-6xl sm:text-7xl md:text-9xl font-bold tracking-tighter leading-tight mb-8 text-white">
                         LEO YANG
                     </h1>
@@ -256,7 +259,7 @@
             <div class="absolute bottom-12 right-12 hidden md:block">
                 <div class="flex flex-col items-end">
                     <span
-                        class="font-label text-[10px] tracking-[0.5em] uppercase text-[#FFF0BE]/30 rotate-90 origin-right translate-y-16">Scroll
+                        class="font-neutraface text-[10px] tracking-[0.5em] uppercase text-[#FFF0BE]/30 rotate-90 origin-right translate-y-16">Scroll
                         to explore</span>
                     <div class="w-px h-24 bg-gradient-to-b from-transparent via-primary-fixed/50 to-transparent"></div>
                 </div>
@@ -274,27 +277,29 @@
                 <!-- Role 1 -->
                 <div class="group relative flex flex-col md:flex-row gap-8 md:gap-16 items-start">
                     <div
-                        class="md:w-1/4 font-space text-primary-fixed opacity-60 pt-2 tracking-widest uppercase text-xs">
+                        class="md:w-1/4 font-neutraface text-primary-fixed opacity-60 pt-2 tracking-widest uppercase text-xs">
                         Summer 2026
                     </div>
                     <div class="md:w-3/4">
                         <h3
-                            class="font-tiempos uppercase text-white text-2xl font-bold group-hover:text-primary-fixed transition-colors">
+                            class="font-neutraface uppercase text-white text-2xl font-bold group-hover:text-primary-fixed transition-colors">
                             Project Operations and Automation Intern</h3>
-                        <p class="font-label text-on-secondary-container mb-0 tracking-tight">3MA Consulting Inc.</p>
+                        <p class="font-neutraface text-on-secondary-container mb-0 tracking-tight">3MA Consulting Inc.
+                        </p>
                     </div>
                 </div>
                 <!-- Role 2 -->
                 <div class="group relative flex flex-col md:flex-row gap-8 md:gap-16 items-start">
                     <div
-                        class="md:w-1/4 font-space text-primary-fixed opacity-60 pt-2 tracking-widest uppercase text-xs">
+                        class="md:w-1/4 font-neutraface text-primary-fixed opacity-60 pt-2 tracking-widest uppercase text-xs">
                         Summer 2025
                     </div>
                     <div class="md:w-3/4">
                         <h3
-                            class="font-tiempos uppercase text-white text-2xl font-bold group-hover:text-primary-fixed transition-colors">
+                            class="font-neutraface uppercase text-white text-2xl font-bold group-hover:text-primary-fixed transition-colors">
                             Business Analyst Intern</h3>
-                        <p class="font-label text-on-secondary-container mb-0 tracking-tight">Barcoded Fit Tech Inc.</p>
+                        <p class="font-neutraface text-on-secondary-container mb-0 tracking-tight">Barcoded Fit Tech
+                            Inc.</p>
                     </div>
                 </div>
             </div>
@@ -306,7 +311,8 @@
                 <div>
                     <h2 class="font-custom uppercase text-4xl md:text-5xl font-bold tracking-tighter text-white">
                         Selected Works</h2>
-                    <p class="font-body text-on-surface-variant mt-4 text-white">Engineering narratives captured in
+                    <p class="font-neutraface text-on-surface-variant mt-4 text-white">Engineering narratives captured
+                        in
                         code.</p>
                 </div>
             </div>
@@ -319,14 +325,15 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-8">
                         <span
-                            class="font-tiempos text-[10px] tracking-[0.3em] uppercase text-primary-fixed mb-2 block">System
+                            class="font-neutraface text-[10px] tracking-[0.3em] uppercase text-primary-fixed mb-2 block">System
                             Architecture</span>
-                        <h3 class="font-tiempos text-3xl font-bold text-[#FFF0BE] mb-2">Aether Engine</h3>
-                        <p class="font-body text-on-surface-variant text-base mb-4 line-clamp-2 max-w-md text-white">
+                        <h3 class="font-neutraface text-3xl font-bold text-[#FFF0BE] mb-2">Aether Engine</h3>
+                        <p
+                            class="font-neutraface text-on-surface-variant text-base mb-4 line-clamp-2 max-w-md text-white">
                             Distributed physics engine built with Rust and SIMD for high-performance simulations.</p>
                         <div class="flex gap-2">
                             <span
-                                class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Rust</span>
+                                class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Rust</span>
                         </div>
                     </div>
                 </div>
@@ -337,14 +344,15 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-8">
                         <span
-                            class="font-tiempos text-[10px] tracking-[0.3em] uppercase text-primary-fixed mb-2 block">Cryptographic
+                            class="font-neutraface text-[10px] tracking-[0.3em] uppercase text-primary-fixed mb-2 block">Cryptographic
                             Tooling</span>
-                        <h3 class="font-tiempos text-3xl font-bold text-[#FFF0BE] mb-2">Void Protocol</h3>
-                        <p class="font-body text-on-surface-variant text-base mb-4 line-clamp-2 max-w-md text-white">
+                        <h3 class="font-neutraface text-3xl font-bold text-[#FFF0BE] mb-2">Void Protocol</h3>
+                        <p
+                            class="font-neutraface text-on-surface-variant text-base mb-4 line-clamp-2 max-w-md text-white">
                             Zero-knowledge proof implementation for privacy-preserving identity verification.</p>
                         <div class="flex gap-2">
                             <span
-                                class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Python</span>
+                                class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Python</span>
                         </div>
                     </div>
                 </div>
@@ -354,14 +362,15 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-8">
                         <span
-                            class="font-tiempos text-[10px] tracking-[0.3em] uppercase text-primary-fixed mb-2 block">UI/UX
+                            class="font-neutraface text-[10px] tracking-[0.3em] uppercase text-primary-fixed mb-2 block">UI/UX
                             Interface</span>
-                        <h3 class="font-tiempos text-3xl font-bold text-[#FFF0BE] mb-2">Lumina UI</h3>
-                        <p class="font-body text-on-surface-variant text-base mb-4 line-clamp-2 max-w-md text-white">
+                        <h3 class="font-neutraface text-3xl font-bold text-[#FFF0BE] mb-2">Lumina UI</h3>
+                        <p
+                            class="font-neutraface text-on-surface-variant text-base mb-4 line-clamp-2 max-w-md text-white">
                             Minimalist component library designed specifically for data-rich dashboards.</p>
                         <div class="flex gap-2">
                             <span
-                                class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">React</span>
+                                class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">React</span>
                         </div>
                     </div>
                 </div>
@@ -380,49 +389,49 @@
                 <div class="space-y-8">
                     <div class="flex items-center gap-4 min-h-[64px] lg:min-h-[80px]">
                         <span class="material-symbols-outlined text-primary-fixed text-3xl">terminal</span>
-                        <h3 class="font-tiempos text-xl font-bold uppercase tracking-widest text-white opacity-100">
+                        <h3 class="font-neutraface text-xl font-bold uppercase tracking-widest text-white opacity-100">
                             Languages</h3>
                     </div>
                     <div class="flex flex-wrap gap-2">
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Python</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Python</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Java</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Java</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">JavaScript/TypeScript</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">JavaScript/TypeScript</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">SQL</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">SQL</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">C/C++</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">C/C++</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Bash</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Bash</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">HTML/CSS</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">HTML/CSS</span>
                     </div>
                 </div>
                 <!-- Category 2 -->
                 <div class="space-y-8">
                     <div class="flex items-center gap-4 min-h-[64px] lg:min-h-[80px]">
                         <span class="material-symbols-outlined text-primary-fixed text-3xl">api</span>
-                        <h3 class="font-tiempos text-xl font-bold uppercase tracking-widest text-white opacity-100">
+                        <h3 class="font-neutraface text-xl font-bold uppercase tracking-widest text-white opacity-100">
                             Web & APIs</h3>
                     </div>
                     <div class="flex flex-wrap gap-2">
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">React</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">React</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Next.js</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Next.js</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Node.js</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Node.js</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Express</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Express</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">FastAPI</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">FastAPI</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">REST
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">REST
                             APIs</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Google
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Google
                             Apps Script</span>
                     </div>
                 </div>
@@ -430,28 +439,28 @@
                 <div class="space-y-8">
                     <div class="flex items-center gap-4 min-h-[64px] lg:min-h-[80px]">
                         <span class="material-symbols-outlined text-primary-fixed text-3xl">database</span>
-                        <h3 class="font-tiempos text-xl font-bold uppercase tracking-widest text-white opacity-100">
+                        <h3 class="font-neutraface text-xl font-bold uppercase tracking-widest text-white opacity-100">
                             Data, AI & Backend</h3>
                     </div>
                     <div class="flex flex-wrap gap-2">
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Pandas</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Pandas</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">NumPy</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">NumPy</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">PostgreSQL</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">PostgreSQL</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">MongoDB</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">MongoDB</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Supabase</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Supabase</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Streamlit</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Streamlit</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Plotly</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Plotly</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Ollama</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Ollama</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Gemini
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Gemini
                             API</span>
                     </div>
                 </div>
@@ -459,25 +468,25 @@
                 <div class="space-y-8">
                     <div class="flex items-center gap-4 min-h-[64px] lg:min-h-[80px]">
                         <span class="material-symbols-outlined text-primary-fixed text-3xl">build</span>
-                        <h3 class="font-tiempos text-xl font-bold uppercase tracking-widest text-white opacity-100">
+                        <h3 class="font-neutraface text-xl font-bold uppercase tracking-widest text-white opacity-100">
                             Tools & Platforms</h3>
                     </div>
                     <div class="flex flex-wrap gap-2">
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Git</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Git</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Docker</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Docker</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">AWS
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">AWS
                             (EC2, S3)</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">CI/CD</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">CI/CD</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Firebase</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Firebase</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">ScraperAPI</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">ScraperAPI</span>
                         <span
-                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Agile/Scrum</span>
+                            class="text-[10px] font-neutraface uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Agile/Scrum</span>
                     </div>
                 </div>
             </div>
@@ -489,9 +498,9 @@
                 <h2
                     class="font-custom uppercase text-5xl md:text-7xl font-bold tracking-tighter text-white mb-12 opacity-100">
                     Let's collaborate.</h2>
-                <p class="font-body text-xl mb-12 text-white">I'm currently looking for new opportunities to build
+                <p class="font-neutraface text-xl mb-12 text-white">I'm currently looking for new opportunities to build
                     complex systems. Drop a line if you want to chat about code or art.</p>
-                <a class="inline-block bg-[#FFF0BE] text-[#38300e] font-space font-bold px-12 py-6 rounded-full text-xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-[#FFF0BE]/10 hover:shadow-[#FFF0BE]/30 brightness-110"
+                <a class="inline-block bg-[#FFF0BE] text-[#38300e] font-neutraface font-bold px-12 py-6 rounded-full text-xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-[#FFF0BE]/10 hover:shadow-[#FFF0BE]/30 brightness-110"
                     href="mailto:yangleo2005@gmail.com">
                     Email me!
                 </a>
@@ -502,24 +511,23 @@
     <!-- Footer -->
     <footer
         class="w-full py-16 px-12 flex flex-col md:flex-row justify-between items-center border-t border-[#FFF0BE]/5 bg-[#090C19]">
-        <div class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase mb-8 md:mb-0 text-white">
-            © 2024 Nocturnal Architect. Built with logic and art.
-        </div>
         <div class="flex gap-8 items-center">
             <a class="group flex flex-col items-center" href="#">
                 <span
                     class="material-symbols-outlined text-3xl text-[#FFF0BE]/50 group-hover:text-[#FFF0BE] transition-colors">code</span>
-                <span class="font-space text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">Github</span>
+                <span class="font-neutraface text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">Github</span>
             </a>
             <a class="group flex flex-col items-center" href="#">
                 <span
                     class="material-symbols-outlined text-3xl text-[#FFF0BE]/50 group-hover:text-[#FFF0BE] transition-colors">hub</span>
-                <span class="font-space text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">LinkedIn</span>
+                <span
+                    class="font-neutraface text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">LinkedIn</span>
             </a>
             <a class="group flex flex-col items-center" href="#">
                 <span
                     class="material-symbols-outlined text-3xl text-[#FFF0BE]/50 group-hover:text-[#FFF0BE] transition-colors">alternate_email</span>
-                <span class="font-space text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">Twitter</span>
+                <span
+                    class="font-neutraface text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">Twitter</span>
             </a>
         </div>
     </footer>
@@ -562,6 +570,39 @@
                 menuToggle.querySelector('.material-symbols-outlined').textContent = 'menu';
             }
         });
+
+        // Dynamic Navbar Name Visibility (Scroll-Linked)
+        const heroName = document.getElementById('hero-name');
+        const navName = document.getElementById('nav-name');
+
+        if (heroName && navName) {
+            const animationDistance = 150; // pixels to scroll for full reveal
+
+            const updateNav = () => {
+                const rect = heroName.getBoundingClientRect();
+                let progress = 0;
+
+                // When bottom is <= 0, hero name is fully out of view
+                if (rect.bottom <= 0) {
+                    const scrolledPast = -rect.bottom;
+                    progress = Math.min(scrolledPast / animationDistance, 1);
+                }
+
+                // Apply styles based on progress
+                // max-width goes from 0 to 200px
+                navName.style.maxWidth = `${progress * 200}px`;
+                navName.style.opacity = progress;
+                // translateX goes from -16px to 0px
+                navName.style.transform = `translateX(${-16 * (1 - progress)}px)`;
+            };
+
+            window.addEventListener('scroll', () => {
+                requestAnimationFrame(updateNav);
+            });
+
+            // Initial call
+            updateNav();
+        }
     </script>
 </body>
 
