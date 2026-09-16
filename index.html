@@ -1,107 +1,135 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>The Nocturnal Architect | Software Engineering Portfolio</title>
+    <title>Leo Yang</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+
     <!-- Original Tailwind Configuration from Stitch -->
     <script id="tailwind-config">
         tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "on-secondary-container": "#e4dfff",
-                      "tertiary": "#ffffff",
-                      "on-background": "#e4dfff",
-                      "surface-variant": "#32267c",
-                      "on-secondary": "#3c0090",
-                      "primary": "#ffffff",
-                      "on-primary-container": "#6e643d",
-                      "outline-variant": "#4a473c",
-                      "surface-tint": "#d4c697",
-                      "tertiary-fixed-dim": "#ffb1c1",
-                      "inverse-on-surface": "#2e2177",
-                      "primary-fixed-dim": "#d4c697",
-                      "surface-container-high": "#271971",
-                      "primary-fixed": "#f1e2b1",
-                      "outline": "#969083",
-                      "on-secondary-fixed": "#23005b",
-                      "error-container": "#93000a",
-                      "surface-container-low": "#180164",
-                      "tertiary-container": "#ffd9df",
-                      "background": "#10004e",
-                      "secondary-fixed": "#e9ddff",
-                      "surface-container-lowest": "#0b0040",
-                      "inverse-primary": "#685e37",
-                      "secondary": "#ccc6b8",
-                      "inverse-surface": "#e4dfff",
-                      "on-tertiary": "#620a2b",
-                      "secondary-container": "#5521b3",
-                      "surface": "#10004e",
-                      "surface-bright": "#372b81",
-                      "on-primary-fixed-variant": "#504622",
-                      "on-surface": "#d1bcff",
-                      "error": "#ffb4ab",
-                      "on-tertiary-fixed-variant": "#802441",
-                      "surface-container-highest": "#32267c",
-                      "on-tertiary-fixed": "#3f0017",
-                      "on-error": "#690005",
-                      "on-error-container": "#ffdad6",
-                      "on-primary": "#38300e",
-                      "primary-container": "#f1e2b1",
-                      "on-tertiary-container": "#a7415e",
-                      "secondary-fixed-dim": "#d1bcff",
-                      "surface-container": "#1c0867",
-                      "tertiary-fixed": "#ffd9df",
-                      "on-primary-fixed": "#221b00",
-                      "surface-dim": "#10004e",
-                      "on-surface-variant": "#d1bcff",
-                      "on-secondary-fixed-variant": "#5521b3"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.125rem",
-                      "lg": "0.25rem",
-                      "xl": "0.5rem",
-                      "full": "0.75rem"
-              },
-              "fontFamily": {
-                      "custom": ["Yasashii", "sans-serif"],
-                      "headline": ["Space Grotesk"],
-                      "body": ["Inter"],
-                      "label": ["Space Grotesk"]
-              }
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#e4dfff",
+                        "tertiary": "#ffffff",
+                        "on-background": "#e4dfff",
+                        "surface-variant": "#32267c",
+                        "on-secondary": "#3c0090",
+                        "primary": "#ffffff",
+                        "on-primary-container": "#6e643d",
+                        "outline-variant": "#4a473c",
+                        "surface-tint": "#d4c697",
+                        "tertiary-fixed-dim": "#ffb1c1",
+                        "inverse-on-surface": "#2e2177",
+                        "primary-fixed-dim": "#d4c697",
+                        "surface-container-high": "#271971",
+                        "primary-fixed": "#f1e2b1",
+                        "outline": "#969083",
+                        "on-secondary-fixed": "#23005b",
+                        "error-container": "#93000a",
+                        "surface-container-low": "#180164",
+                        "tertiary-container": "#ffd9df",
+                        "background": "#10004e",
+                        "secondary-fixed": "#e9ddff",
+                        "surface-container-lowest": "#0b0040",
+                        "inverse-primary": "#685e37",
+                        "secondary": "#ccc6b8",
+                        "inverse-surface": "#e4dfff",
+                        "on-tertiary": "#620a2b",
+                        "secondary-container": "#5521b3",
+                        "surface": "#10004e",
+                        "surface-bright": "#372b81",
+                        "on-primary-fixed-variant": "#504622",
+                        "on-surface": "#d1bcff",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed-variant": "#802441",
+                        "surface-container-highest": "#32267c",
+                        "on-tertiary-fixed": "#3f0017",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "on-primary": "#38300e",
+                        "primary-container": "#f1e2b1",
+                        "on-tertiary-container": "#a7415e",
+                        "secondary-fixed-dim": "#d1bcff",
+                        "surface-container": "#1c0867",
+                        "tertiary-fixed": "#ffd9df",
+                        "on-primary-fixed": "#221b00",
+                        "surface-dim": "#10004e",
+                        "on-surface-variant": "#d1bcff",
+                        "on-secondary-fixed-variant": "#5521b3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "custom": ["Yasashii", "sans-serif"],
+                        "proxima": ["Proxima Nova", "sans-serif"],
+                        "tiempos": ["Tiempos Headline", "serif"],
+                        "space": ["Space Grotesk", "sans-serif"],
+                        "headline": ["Proxima Nova", "sans-serif"],
+                        "body": ["Proxima Nova", "sans-serif"],
+                        "label": ["Proxima Nova", "sans-serif"],
+                        "neutraface": ["Neutraface Text", "sans-serif"]
+                    }
+                },
             },
-          },
         }
     </script>
-    
+
     <!-- Original Custom Styles from Stitch -->
     <style>
+        @font-face {
+            font-family: 'Neutraface Text';
+            src: url('assets/neutraface-text/Neutraface Text Book.otf') format('opentype');
+        }
+
         @font-face {
             font-family: 'Yasashii';
             src: url('assets/Yasashii W01 Bold.ttf') format('truetype');
         }
+
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('assets/Proxima Nova Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Tiempos Headline';
+            src: url('assets/Tiempos/TestTiemposHeadline-Medium-BF66457a509b4ec.otf') format('opentype');
+        }
+
         body {
             background: radial-gradient(circle at top left, #5f2fbd 0%, #3a1c9c 45%, #170063 100%);
             background-attachment: fixed;
             min-height: 100vh;
         }
+
         .glass-card {
             background: rgba(50, 38, 124, 0.1);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(150, 144, 131, 0.15);
         }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
+
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
+
         /* Mobile Menu Animation */
         #mobile-menu {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -109,11 +137,13 @@
             pointer-events: none;
             transform: translateY(-10px) translateX(-50%);
         }
+
         #mobile-menu.active {
             opacity: 1;
             pointer-events: auto;
             transform: translateY(0) translateX(-50%);
         }
+
         /* Custom Hero Background to avoid cropping */
         .hero-bg-custom {
             background-image: url('assets/hero-bg.jpg');
@@ -123,6 +153,7 @@
             background-color: #090C19;
             width: 100%;
         }
+
         /* On smaller screens, allow it to cover so it fills properly if needed */
         @media (max-width: 1024px) {
             .hero-bg-custom {
@@ -135,154 +166,185 @@
 
 <body class="font-body text-on-surface antialiased overflow-x-hidden">
     <!-- TopNavBar -->
-    <nav class="fixed top-0 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between gap-8 px-6 py-3 w-[calc(100%-2rem)] md:w-max bg-[#180164]/40 backdrop-blur-2xl rounded-full border border-[#FFF0BE]/10 mt-6 shadow-[0_20px_50px_rgba(23,0,99,0.5)]">
-        <div class="text-lg font-bold tracking-widest text-white font-custom uppercase whitespace-nowrap">The Nocturnal Architect</div>
+    <nav
+        class="fixed top-0 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between gap-8 px-6 py-3 w-[calc(100%-2rem)] md:w-max bg-[#180164]/40 backdrop-blur-2xl rounded-full border border-[#FFF0BE]/10 mt-6 shadow-[0_20px_50px_rgba(23,0,99,0.5)]">
+        <div class="text-lg font-bold tracking-widest text-white font-neutraface uppercase whitespace-nowrap">Leo Yang
+        </div>
         <!-- Desktop Links -->
         <div class="hidden lg:flex items-center gap-6">
-            <a class="font-['Space_Grotesk'] tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all" href="#experience">Experience</a>
-            <a class="font-['Space_Grotesk'] tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all" href="#projects">Projects</a>
-            <a class="font-['Space_Grotesk'] tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all" href="#skills">Skills</a>
-            <a class="font-['Space_Grotesk'] tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all" href="#contact">Contact</a>
+            <a class="font-neutraface tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all"
+                href="#experience">Experience</a>
+            <a class="font-neutraface tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all"
+                href="#projects">Projects</a>
+            <a class="font-neutraface tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all"
+                href="#skills">Skills</a>
+            <a class="font-neutraface tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all"
+                href="#contact">Contact</a>
         </div>
         <div class="flex items-center gap-4">
-            <a class="hidden sm:block bg-[#FFF0BE] text-[#38300e] px-4 py-1.5 rounded-full font-headline font-bold text-sm tracking-tight hover:brightness-110 transition-all" href="#">Resume</a>
+            <a class="hidden sm:block bg-[#FFF0BE] text-[#38300e] px-4 py-1.5 rounded-full font-neutraface uppercase font-bold text-sm tracking-tight hover:brightness-110 transition-all"
+                href="#">Resume</a>
             <!-- Hamburger Button (Mobile/Tablet) -->
-            <button class="lg:hidden text-[#FFF0BE]/70 hover:text-[#FFF0BE] flex items-center justify-center p-1" id="menu-toggle">
+            <button class="lg:hidden text-[#FFF0BE]/70 hover:text-[#FFF0BE] flex items-center justify-center p-1"
+                id="menu-toggle">
                 <span class="material-symbols-outlined text-3xl">menu</span>
             </button>
         </div>
     </nav>
-    
+
     <!-- Mobile/Tablet Dropdown -->
-    <div class="fixed top-24 left-1/2 w-[calc(100%-2rem)] max-w-lg z-[49] lg:hidden bg-[#180164]/95 backdrop-blur-2xl border border-[#FFF0BE]/10 rounded-2xl p-6 shadow-2xl" id="mobile-menu">
+    <div class="fixed top-24 left-1/2 w-[calc(100%-2rem)] max-w-lg z-[49] lg:hidden bg-[#180164]/95 backdrop-blur-2xl border border-[#FFF0BE]/10 rounded-2xl p-6 shadow-2xl"
+        id="mobile-menu">
         <div class="flex flex-col gap-4 text-center">
-            <a class="py-3 font-headline text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]" href="#experience">Experience</a>
-            <a class="py-3 font-headline text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]" href="#projects">Projects</a>
-            <a class="py-3 font-headline text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]" href="#skills">Skills</a>
-            <a class="py-3 font-headline text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]" href="#contact">Contact</a>
-            <a class="sm:hidden mt-4 bg-[#FFF0BE] text-[#38300e] px-6 py-3 rounded-full font-headline font-bold text-sm tracking-tight" href="#">Resume</a>
+            <a class="py-3 font-neutraface text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]"
+                href="#experience">Experience</a>
+            <a class="py-3 font-neutraface text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]"
+                href="#projects">Projects</a>
+            <a class="py-3 font-neutraface text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]"
+                href="#skills">Skills</a>
+            <a class="py-3 font-neutraface text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]"
+                href="#contact">Contact</a>
+            <a class="sm:hidden mt-4 bg-[#FFF0BE] text-[#38300e] px-6 py-3 rounded-full font-neutraface uppercase font-bold text-sm tracking-tight"
+                href="#">Resume</a>
         </div>
     </div>
-    
+
     <main class="relative z-10">
         <!-- Hero Section with Custom Background Class -->
         <section class="min-h-screen flex items-center px-8 md:px-24 py-32 hero-bg-custom relative">
             <!-- Fade overlay so the image blends into the left side -->
-            <div class="absolute inset-0 bg-gradient-to-r from-[#090C19] via-[#090C19]/40 to-transparent pointer-events-none"></div>
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-[#090C19] via-[#090C19]/40 to-transparent pointer-events-none">
+            </div>
             <!-- Original Vertical Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#090C19]/20 to-[#090C19] pointer-events-none"></div>
-            
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-transparent via-[#090C19]/20 to-[#090C19] pointer-events-none">
+            </div>
+
             <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center relative z-10">
                 <div class="lg:col-span-8">
-                    <p class="font-label text-primary-fixed uppercase tracking-[0.3em] mb-4 text-sm opacity-80">Software Engineering Portfolio</p>
-                    <h1 class="font-custom uppercase text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-8 text-white">
-                        Building digital <span class="">cathedrals</span> out of code.
+                    <h1
+                        class="font-custom uppercase text-6xl sm:text-7xl md:text-9xl font-bold tracking-tighter leading-tight mb-8 text-white">
+                        LEO YANG
                     </h1>
-                    <p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed opacity-90 text-white">
-                        A nocturnal journey through full-stack systems, distributed architecture, and the intersection of logic and art.
+                    <p
+                        class="font-neutraface text-xs md:text-sm tracking-widest uppercase text-on-surface-variant max-w-2xl leading-relaxed opacity-90 text-white">
+                        Hi, I'm Leo, an undergraduate student studying Software Engineering and Business at the Ivey
+                        School of Business. I love building cool apps and analyzing trends in the tech
+                        industry.<br><br>Away from the keyboard,
+                        you'll
+                        find me experimenting with new recipes, watching F1 or basketball with my buddies or listening
+                        to
+                        Taylor Swift and Mandopop.
+
                     </p>
                 </div>
                 <!-- Profile Picture Placeholder -->
                 <div class="lg:col-span-4 flex justify-center lg:justify-end">
                     <div class="relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-primary-fixed to-[#5f2fbd] rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                        <div class="relative w-64 h-80 sm:w-80 sm:h-[400px] lg:w-full lg:aspect-[4/5] bg-surface-container-high rounded-2xl overflow-hidden glass-card flex items-center justify-center border border-[#FFF0BE]/10">
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-r from-primary-fixed to-[#5f2fbd] rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+                        </div>
+                        <div
+                            class="relative w-64 h-80 sm:w-80 sm:h-[400px] lg:w-full lg:aspect-[4/5] bg-surface-container-high rounded-2xl overflow-hidden glass-card flex items-center justify-center border border-[#FFF0BE]/10">
                             <span class="material-symbols-outlined text-6xl text-[#FFF0BE]/10">person</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="absolute bottom-12 right-12 hidden md:block">
                 <div class="flex flex-col items-end">
-                    <span class="font-label text-[10px] tracking-[0.5em] uppercase text-[#FFF0BE]/30 rotate-90 origin-right translate-y-16">Scroll to explore</span>
+                    <span
+                        class="font-label text-[10px] tracking-[0.5em] uppercase text-[#FFF0BE]/30 rotate-90 origin-right translate-y-16">Scroll
+                        to explore</span>
                     <div class="w-px h-24 bg-gradient-to-b from-transparent via-primary-fixed/50 to-transparent"></div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Experience Section -->
         <section class="py-32 px-8 md:px-24 bg-[#090C19]" id="experience">
             <div class="mb-20">
-                <h2 class="font-custom uppercase text-4xl md:text-5xl font-bold tracking-tighter text-white">Experience</h2>
+                <h2 class="font-custom uppercase text-4xl md:text-5xl font-bold tracking-tighter text-white">Experience
+                </h2>
                 <div class="w-24 h-1 bg-primary-fixed mt-4"></div>
             </div>
             <div class="grid grid-cols-1 gap-12 max-w-5xl">
                 <!-- Role 1 -->
                 <div class="group relative flex flex-col md:flex-row gap-8 md:gap-16 items-start">
-                    <div class="md:w-1/4 font-label text-primary-fixed opacity-60 pt-2 tracking-widest uppercase text-xs">
-                        2023 — Present
+                    <div
+                        class="md:w-1/4 font-space text-primary-fixed opacity-60 pt-2 tracking-widest uppercase text-xs">
+                        Summer 2026
                     </div>
                     <div class="md:w-3/4">
-                        <h3 class="font-custom uppercase text-white text-2xl font-bold group-hover:text-primary-fixed transition-colors">Backend Engineering Intern</h3>
-                        <p class="font-label text-on-secondary-container mb-4 tracking-tight">Nebula Systems Corp.</p>
-                        <p class="font-body text-on-surface-variant leading-relaxed max-w-2xl text-white">
-                            Architecting microservices for real-time data processing using Go and gRPC. Optimized query latency by 40% through strategic Redis caching layers and PostgreSQL indexing.
-                        </p>
+                        <h3
+                            class="font-tiempos uppercase text-white text-2xl font-bold group-hover:text-primary-fixed transition-colors">
+                            Project Operations and Automation Intern</h3>
+                        <p class="font-label text-on-secondary-container mb-0 tracking-tight">3MA Consulting Inc.</p>
                     </div>
                 </div>
                 <!-- Role 2 -->
                 <div class="group relative flex flex-col md:flex-row gap-8 md:gap-16 items-start">
-                    <div class="md:w-1/4 font-label text-primary-fixed opacity-60 pt-2 tracking-widest uppercase text-xs">
-                        Summer 2022
+                    <div
+                        class="md:w-1/4 font-space text-primary-fixed opacity-60 pt-2 tracking-widest uppercase text-xs">
+                        Summer 2025
                     </div>
                     <div class="md:w-3/4">
-                        <h3 class="font-custom uppercase text-white text-2xl font-bold group-hover:text-primary-fixed transition-colors">Software Development Intern</h3>
-                        <p class="font-label text-on-secondary-container mb-4 tracking-tight">Ethereal Labs</p>
-                        <p class="font-body text-on-surface-variant leading-relaxed max-w-2xl text-white">
-                            Developed core features for a React-based analytics dashboard. Integrated Web3 provider connections and implemented complex data visualizations using D3.js.
-                        </p>
-                    </div>
-                </div>
-                <!-- Role 3 -->
-                <div class="group relative flex flex-col md:flex-row gap-8 md:gap-16 items-start">
-                    <div class="md:w-1/4 font-label text-primary-fixed opacity-60 pt-2 tracking-widest uppercase text-xs">
-                        2021 — 2022
-                    </div>
-                    <div class="md:w-3/4">
-                        <h3 class="font-custom uppercase text-white text-2xl font-bold group-hover:text-primary-fixed transition-colors">Open Source Contributor</h3>
-                        <p class="font-label text-on-secondary-container mb-4 tracking-tight">The Rust Foundation</p>
-                        <p class="font-body text-on-surface-variant leading-relaxed max-w-2xl text-white">
-                            Active maintainer and contributor to various CLI tooling projects. Focused on memory safety improvements and streamlining build pipelines.
-                        </p>
+                        <h3
+                            class="font-tiempos uppercase text-white text-2xl font-bold group-hover:text-primary-fixed transition-colors">
+                            Business Analyst Intern</h3>
+                        <p class="font-label text-on-secondary-container mb-0 tracking-tight">Barcoded Fit Tech Inc.</p>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Projects Section -->
         <section class="py-32 px-8 md:px-24 bg-[#0d1226]" id="projects">
             <div class="flex justify-between items-end mb-20">
                 <div>
-                    <h2 class="font-custom uppercase text-4xl md:text-5xl font-bold tracking-tighter text-white">Selected Works</h2>
-                    <p class="font-body text-on-surface-variant mt-4 text-white">Engineering narratives captured in code.</p>
+                    <h2 class="font-custom uppercase text-4xl md:text-5xl font-bold tracking-tighter text-white">
+                        Selected Works</h2>
+                    <p class="font-body text-on-surface-variant mt-4 text-white">Engineering narratives captured in
+                        code.</p>
                 </div>
             </div>
             <!-- 3 Columns Grid Layout on Desktop -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <!-- Project 1 -->
                 <div class="group relative overflow-hidden rounded-xl glass-card aspect-video lg:aspect-[4/3]">
-                    <img class="w-full h-full object-cover opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700" alt="Close-up of motherboard" src="assets/project1.jpg">
+                    <img class="w-full h-full object-cover opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700"
+                        alt="Close-up of motherboard" src="assets/project1.jpg">
                     <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-8">
-                        <span class="font-label text-[10px] tracking-[0.3em] uppercase text-primary-fixed mb-2 block">System Architecture</span>
-                        <h3 class="font-headline text-3xl font-bold text-[#FFF0BE] mb-2">Aether Engine</h3>
-                        <p class="font-body text-on-surface-variant text-base mb-4 line-clamp-2 max-w-md text-white">Distributed physics engine built with Rust and SIMD for high-performance simulations.</p>
+                        <span
+                            class="font-tiempos text-[10px] tracking-[0.3em] uppercase text-primary-fixed mb-2 block">System
+                            Architecture</span>
+                        <h3 class="font-tiempos text-3xl font-bold text-[#FFF0BE] mb-2">Aether Engine</h3>
+                        <p class="font-body text-on-surface-variant text-base mb-4 line-clamp-2 max-w-md text-white">
+                            Distributed physics engine built with Rust and SIMD for high-performance simulations.</p>
                         <div class="flex gap-2">
-                            <span class="text-[10px] font-label uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Rust</span>
+                            <span
+                                class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Rust</span>
                         </div>
                     </div>
                 </div>
                 <!-- Project 2 -->
                 <div class="group relative overflow-hidden rounded-xl glass-card aspect-video lg:aspect-[4/3]">
-                    <img class="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-all duration-700" alt="Abstract connections" src="assets/project2.jpg">
+                    <img class="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-all duration-700"
+                        alt="Abstract connections" src="assets/project2.jpg">
                     <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-8">
-                        <span class="font-label text-[10px] tracking-[0.3em] uppercase text-primary-fixed mb-2 block">Cryptographic Tooling</span>
-                        <h3 class="font-headline text-3xl font-bold text-[#FFF0BE] mb-2">Void Protocol</h3>
-                        <p class="font-body text-on-surface-variant text-base mb-4 line-clamp-2 max-w-md text-white">Zero-knowledge proof implementation for privacy-preserving identity verification.</p>
+                        <span
+                            class="font-tiempos text-[10px] tracking-[0.3em] uppercase text-primary-fixed mb-2 block">Cryptographic
+                            Tooling</span>
+                        <h3 class="font-tiempos text-3xl font-bold text-[#FFF0BE] mb-2">Void Protocol</h3>
+                        <p class="font-body text-on-surface-variant text-base mb-4 line-clamp-2 max-w-md text-white">
+                            Zero-knowledge proof implementation for privacy-preserving identity verification.</p>
                         <div class="flex gap-2">
-                            <span class="text-[10px] font-label uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Python</span>
+                            <span
+                                class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Python</span>
                         </div>
                     </div>
                 </div>
@@ -291,109 +353,188 @@
                     <div class="absolute inset-0 bg-[#32267c]/20"></div>
                     <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-8">
-                        <span class="font-label text-[10px] tracking-[0.3em] uppercase text-primary-fixed mb-2 block">UI/UX Interface</span>
-                        <h3 class="font-headline text-3xl font-bold text-[#FFF0BE] mb-2">Lumina UI</h3>
-                        <p class="font-body text-on-surface-variant text-base mb-4 line-clamp-2 max-w-md text-white">Minimalist component library designed specifically for data-rich dashboards.</p>
+                        <span
+                            class="font-tiempos text-[10px] tracking-[0.3em] uppercase text-primary-fixed mb-2 block">UI/UX
+                            Interface</span>
+                        <h3 class="font-tiempos text-3xl font-bold text-[#FFF0BE] mb-2">Lumina UI</h3>
+                        <p class="font-body text-on-surface-variant text-base mb-4 line-clamp-2 max-w-md text-white">
+                            Minimalist component library designed specifically for data-rich dashboards.</p>
                         <div class="flex gap-2">
-                            <span class="text-[10px] font-label uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">React</span>
+                            <span
+                                class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">React</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Skills Section -->
         <section class="py-32 px-8 md:px-24 bg-[#090C19]" id="skills">
             <div class="mb-20 text-center">
-                <h2 class="font-custom uppercase text-4xl md:text-5xl font-bold tracking-tighter text-white">Technological Arsenal</h2>
+                <h2 class="font-custom uppercase text-4xl md:text-5xl font-bold tracking-tighter text-white">
+                    Technological Arsenal</h2>
                 <div class="w-24 h-1 bg-primary-fixed mx-auto mt-4"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
                 <!-- Category 1 -->
                 <div class="space-y-8">
-                    <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-4 min-h-[64px] lg:min-h-[80px]">
                         <span class="material-symbols-outlined text-primary-fixed text-3xl">terminal</span>
-                        <h3 class="font-custom text-xl font-bold uppercase tracking-widest text-white opacity-100">Languages</h3>
+                        <h3 class="font-tiempos text-xl font-bold uppercase tracking-widest text-white opacity-100">
+                            Languages</h3>
                     </div>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center border-b border-[#FFF0BE]/10 pb-2"><span class="font-body opacity-100 text-white">Rust</span><span class="font-label text-[10px] text-white opacity-100 font-bold uppercase tracking-widest">Expert</span></div>
-                        <div class="flex justify-between items-center border-b border-[#FFF0BE]/10 pb-2"><span class="font-body opacity-100 text-white">TypeScript</span><span class="font-label text-[10px] text-white opacity-100 font-bold uppercase tracking-widest">Expert</span></div>
-                        <div class="flex justify-between items-center border-b border-[#FFF0BE]/10 pb-2"><span class="font-body opacity-100 text-white">Go</span><span class="font-label text-[10px] text-white opacity-100 font-bold uppercase tracking-widest">Advanced</span></div>
-                        <div class="flex justify-between items-center border-b border-[#FFF0BE]/10 pb-2"><span class="font-body opacity-100 text-white">Python</span><span class="font-label text-[10px] text-white opacity-100 font-bold uppercase tracking-widest">Advanced</span></div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Python</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Java</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">JavaScript/TypeScript</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">SQL</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">C/C++</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Bash</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">HTML/CSS</span>
                     </div>
                 </div>
                 <!-- Category 2 -->
                 <div class="space-y-8">
-                    <div class="flex items-center gap-4">
-                        <span class="material-symbols-outlined text-primary-fixed text-3xl">dns</span>
-                        <h3 class="font-custom text-xl font-bold uppercase tracking-widest text-white opacity-100">Backend</h3>
+                    <div class="flex items-center gap-4 min-h-[64px] lg:min-h-[80px]">
+                        <span class="material-symbols-outlined text-primary-fixed text-3xl">api</span>
+                        <h3 class="font-tiempos text-xl font-bold uppercase tracking-widest text-white opacity-100">
+                            Web & APIs</h3>
                     </div>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center border-b border-[#FFF0BE]/10 pb-2"><span class="font-body opacity-100 text-white">PostgreSQL</span><span class="font-label text-[10px] text-white opacity-100 font-bold uppercase tracking-widest">Expert</span></div>
-                        <div class="flex justify-between items-center border-b border-[#FFF0BE]/10 pb-2"><span class="font-body opacity-100 text-white">Redis</span><span class="font-label text-[10px] text-white opacity-100 font-bold uppercase tracking-widest">Advanced</span></div>
-                        <div class="flex justify-between items-center border-b border-[#FFF0BE]/10 pb-2"><span class="font-body opacity-100 text-white">Docker/K8s</span><span class="font-label text-[10px] text-white opacity-100 font-bold uppercase tracking-widest">Advanced</span></div>
-                        <div class="flex justify-between items-center border-b border-[#FFF0BE]/10 pb-2"><span class="font-body opacity-100 text-white">GraphQL</span><span class="font-label text-[10px] text-white opacity-100 font-bold uppercase tracking-widest">Intermediate</span></div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">React</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Next.js</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Node.js</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Express</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">FastAPI</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">REST
+                            APIs</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Google
+                            Apps Script</span>
                     </div>
                 </div>
                 <!-- Category 3 -->
                 <div class="space-y-8">
-                    <div class="flex items-center gap-4">
-                        <span class="material-symbols-outlined text-primary-fixed text-3xl">architecture</span>
-                        <h3 class="font-custom text-xl font-bold uppercase tracking-widest text-white opacity-100">Architectural</h3>
+                    <div class="flex items-center gap-4 min-h-[64px] lg:min-h-[80px]">
+                        <span class="material-symbols-outlined text-primary-fixed text-3xl">database</span>
+                        <h3 class="font-tiempos text-xl font-bold uppercase tracking-widest text-white opacity-100">
+                            Data, AI & Backend</h3>
                     </div>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center border-b border-[#FFF0BE]/10 pb-2"><span class="font-body opacity-100 text-white">Microservices</span><span class="font-label text-[10px] text-white opacity-100 font-bold uppercase tracking-widest">Expert</span></div>
-                        <div class="flex justify-between items-center border-b border-[#FFF0BE]/10 pb-2"><span class="font-body opacity-100 text-white">CI/CD</span><span class="font-label text-[10px] text-white opacity-100 font-bold uppercase tracking-widest">Advanced</span></div>
-                        <div class="flex justify-between items-center border-b border-[#FFF0BE]/10 pb-2"><span class="font-body opacity-100 text-white">Cloud Native</span><span class="font-label text-[10px] text-white opacity-100 font-bold uppercase tracking-widest">Advanced</span></div>
-                        <div class="flex justify-between items-center border-b border-[#FFF0BE]/10 pb-2"><span class="font-body opacity-100 text-white">Security</span><span class="font-label text-[10px] text-white opacity-100 font-bold uppercase tracking-widest">Intermediate</span></div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Pandas</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">NumPy</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">PostgreSQL</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">MongoDB</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Supabase</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Streamlit</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Plotly</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Ollama</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Gemini
+                            API</span>
+                    </div>
+                </div>
+                <!-- Category 4 -->
+                <div class="space-y-8">
+                    <div class="flex items-center gap-4 min-h-[64px] lg:min-h-[80px]">
+                        <span class="material-symbols-outlined text-primary-fixed text-3xl">build</span>
+                        <h3 class="font-tiempos text-xl font-bold uppercase tracking-widest text-white opacity-100">
+                            Tools & Platforms</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Git</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Docker</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">AWS
+                            (EC2, S3)</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">CI/CD</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Firebase</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">ScraperAPI</span>
+                        <span
+                            class="text-[10px] font-space uppercase tracking-widest px-3 py-1 bg-surface-container-highest rounded-full border border-outline-variant/30 text-[#FFF0BE]">Agile/Scrum</span>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Contact Section -->
         <section class="py-32 px-8 md:px-24 bg-[#0d1226]" id="contact">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="font-custom uppercase text-5xl md:text-7xl font-bold tracking-tighter text-white mb-12 opacity-100">Let's collaborate.</h2>
-                <p class="font-body text-xl mb-12 text-white">I'm currently looking for new opportunities to build complex systems. Drop a line if you want to chat about code or art.</p>
-                <a class="inline-block bg-[#FFF0BE] text-[#38300e] font-headline font-bold px-12 py-6 rounded-full text-xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-[#FFF0BE]/10 hover:shadow-[#FFF0BE]/30 brightness-110" href="mailto:hello@nocturnal.arch">
-                    hello@nocturnal.arch
+                <h2
+                    class="font-custom uppercase text-5xl md:text-7xl font-bold tracking-tighter text-white mb-12 opacity-100">
+                    Let's collaborate.</h2>
+                <p class="font-body text-xl mb-12 text-white">I'm currently looking for new opportunities to build
+                    complex systems. Drop a line if you want to chat about code or art.</p>
+                <a class="inline-block bg-[#FFF0BE] text-[#38300e] font-space font-bold px-12 py-6 rounded-full text-xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-[#FFF0BE]/10 hover:shadow-[#FFF0BE]/30 brightness-110"
+                    href="mailto:yangleo2005@gmail.com">
+                    Email me!
                 </a>
             </div>
         </section>
     </main>
-    
+
     <!-- Footer -->
-    <footer class="w-full py-16 px-12 flex flex-col md:flex-row justify-between items-center border-t border-[#FFF0BE]/5 bg-[#090C19]">
+    <footer
+        class="w-full py-16 px-12 flex flex-col md:flex-row justify-between items-center border-t border-[#FFF0BE]/5 bg-[#090C19]">
         <div class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase mb-8 md:mb-0 text-white">
             © 2024 Nocturnal Architect. Built with logic and art.
         </div>
         <div class="flex gap-8 items-center">
             <a class="group flex flex-col items-center" href="#">
-                <span class="material-symbols-outlined text-3xl text-[#FFF0BE]/50 group-hover:text-[#FFF0BE] transition-colors">code</span>
-                <span class="font-label text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">Github</span>
+                <span
+                    class="material-symbols-outlined text-3xl text-[#FFF0BE]/50 group-hover:text-[#FFF0BE] transition-colors">code</span>
+                <span class="font-space text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">Github</span>
             </a>
             <a class="group flex flex-col items-center" href="#">
-                <span class="material-symbols-outlined text-3xl text-[#FFF0BE]/50 group-hover:text-[#FFF0BE] transition-colors">hub</span>
-                <span class="font-label text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">LinkedIn</span>
+                <span
+                    class="material-symbols-outlined text-3xl text-[#FFF0BE]/50 group-hover:text-[#FFF0BE] transition-colors">hub</span>
+                <span class="font-space text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">LinkedIn</span>
             </a>
             <a class="group flex flex-col items-center" href="#">
-                <span class="material-symbols-outlined text-3xl text-[#FFF0BE]/50 group-hover:text-[#FFF0BE] transition-colors">alternate_email</span>
-                <span class="font-label text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">Twitter</span>
+                <span
+                    class="material-symbols-outlined text-3xl text-[#FFF0BE]/50 group-hover:text-[#FFF0BE] transition-colors">alternate_email</span>
+                <span class="font-space text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">Twitter</span>
             </a>
         </div>
     </footer>
-    
+
     <!-- Subtle Grain Overlay -->
     <div class="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay z-[100]">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <filter id="noise">
-                <feTurbulence baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" type="fractalNoise"></feTurbulence>
+                <feTurbulence baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" type="fractalNoise">
+                </feTurbulence>
             </filter>
             <rect filter="url(#noise)" height="100%" width="100%"></rect>
         </svg>
     </div>
-    
+
     <script>
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -423,4 +564,5 @@
         });
     </script>
 </body>
+
 </html>
