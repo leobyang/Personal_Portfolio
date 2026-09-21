@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark bg-[#090C19]" lang="en">
+<html class="dark bg-[#090C19] scroll-smooth" lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -7,6 +7,7 @@
     <title>Leo Yang</title>
     <meta name="theme-color" content="#090C19">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
@@ -91,24 +92,29 @@
 
     <!-- Original Custom Styles from Stitch -->
     <style>
+        /* Prevent white keys from highlighting when hovering their child black keys */
+        .white-key:has(.black-key:hover) {
+            background-color: transparent !important;
+        }
+
         @font-face {
             font-family: 'Neutraface Text';
-            src: url('assets/neutraface-text/Neutraface Text Book.otf') format('opentype');
+            src: url('assets/Fonts/neutraface-text/Neutraface Text Book.otf') format('opentype');
         }
 
         @font-face {
             font-family: 'Yasashii';
-            src: url('assets/Yasashii W01 Bold.ttf') format('truetype');
+            src: url('assets/Fonts/Yasashii W01 Bold.ttf') format('truetype');
         }
 
         @font-face {
             font-family: 'Proxima Nova';
-            src: url('assets/Proxima Nova Regular.ttf') format('truetype');
+            src: url('assets/Fonts/Proxima Nova Regular.ttf') format('truetype');
         }
 
         @font-face {
             font-family: 'Tiempos Headline';
-            src: url('assets/Tiempos/TestTiemposHeadline-Medium-BF66457a509b4ec.otf') format('opentype');
+            src: url('assets/Fonts/Tiempos/TestTiemposHeadline-Medium-BF66457a509b4ec.otf') format('opentype');
         }
 
         body {
@@ -147,7 +153,7 @@
 
         /* Custom Hero Background to avoid cropping */
         .hero-bg-custom {
-            background-image: url('assets/hero-bg.jpg');
+            background-image: url('assets/General/hero-bg.jpg');
             background-size: cover;
             background-position: right center;
             background-repeat: no-repeat;
@@ -190,7 +196,7 @@
         </div>
         <div class="flex items-center gap-4">
             <a class="hidden sm:block bg-[#FFF0BE] text-[#38300e] px-4 py-1.5 rounded-full font-neutraface uppercase font-bold text-sm tracking-tight hover:brightness-110 transition-all"
-                href="assets/yang_leo_resume.pdf" target="_blank">Resume</a>
+                href="assets/General/yang_leo_resume.pdf" target="_blank">Resume</a>
             <!-- Hamburger Button (Mobile/Tablet) -->
             <button class="lg:hidden text-[#FFF0BE]/70 hover:text-[#FFF0BE] flex items-center justify-center p-1"
                 id="menu-toggle">
@@ -214,7 +220,7 @@
             <a class="py-3 font-neutraface text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]"
                 href="#contact">Contact</a>
             <a class="sm:hidden mt-4 bg-[#FFF0BE] text-[#38300e] px-6 py-3 rounded-full font-neutraface uppercase font-bold text-sm tracking-tight"
-                href="assets/yang_leo_resume.pdf" target="_blank">Resume</a>
+                href="assets/General/yang_leo_resume.pdf" target="_blank">Resume</a>
         </div>
     </div>
 
@@ -233,9 +239,7 @@
             <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
                 <div class="lg:col-span-8 lg:pl-16">
                     <h1 id="hero-name"
-                        class="font-custom uppercase text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11rem] font-bold tracking-tighter leading-none mb-8 text-white whitespace-nowrap">
-                        LEO YANG
-                    </h1>
+                        class="font-custom uppercase text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11rem] font-bold tracking-tighter leading-none mb-8 text-white whitespace-nowrap -ml-1 lg:-ml-2">LEO YANG</h1>
                     <p
                         class="font-neutraface text-sm md:text-base lg:text-lg tracking-widest uppercase text-on-surface-variant max-w-2xl leading-relaxed opacity-90 text-white">
                         Hi, I'm Leo, an undergraduate student studying Software Engineering and Business at the Ivey
@@ -250,7 +254,7 @@
                         </div>
                         <div
                             class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-surface-container-high rounded-[50%] overflow-hidden glass-card flex items-center justify-center border border-[#FFF0BE]/20 z-10">
-                            <img src="assets/headshot.jpeg" alt="Leo Yang Headshot"
+                            <img src="assets/General/headshot.jpeg" alt="Leo Yang Headshot"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
                         </div>
                     </div>
@@ -275,19 +279,15 @@
                 <div class="relative w-full aspect-square md:aspect-[4/3] lg:aspect-square">
                     <!-- Base Image Placeholder -->
                     <div class="absolute top-0 left-0 w-3/5 h-3/5 glass-card rounded-2xl -rotate-6 flex items-center justify-center border border-[#FFF0BE]/10 shadow-2xl z-10 bg-surface-container-high/80 overflow-hidden group">
-                        <span class="material-symbols-outlined text-5xl text-[#FFF0BE]/30 group-hover:scale-110 transition-transform">photo_camera</span>
+                        <img src="assets/Collage/775234340.469204_Original.jpg" alt="Leo Yang Collage 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
                     </div>
                     <!-- Right Overlay Placeholder -->
                     <div class="absolute top-1/4 right-0 w-2/5 h-2/5 glass-card rounded-2xl rotate-3 flex items-center justify-center border border-[#FFF0BE]/10 shadow-2xl z-20 bg-surface-container-high/90 overflow-hidden group">
-                        <span class="material-symbols-outlined text-4xl text-[#FFF0BE]/30 group-hover:scale-110 transition-transform">image</span>
+                        <img src="assets/Collage/IMG_0004.JPG" alt="Leo Yang Collage 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
                     </div>
                     <!-- Bottom Overlay Placeholder -->
                     <div class="absolute bottom-0 left-1/4 w-1/2 h-1/2 glass-card rounded-2xl rotate-2 flex items-center justify-center border border-[#FFF0BE]/10 shadow-2xl z-30 bg-surface-container-high overflow-hidden group">
-                        <span class="material-symbols-outlined text-5xl text-[#FFF0BE]/30 group-hover:scale-110 transition-transform">portrait</span>
-                    </div>
-                    <!-- Small Accent Placeholder -->
-                    <div class="absolute bottom-1/4 right-1/4 w-1/4 h-1/4 glass-card rounded-xl -rotate-12 flex items-center justify-center border border-[#FFF0BE]/10 shadow-2xl z-40 bg-primary-fixed/5 backdrop-blur-md overflow-hidden group">
-                        <span class="material-symbols-outlined text-3xl text-[#FFF0BE]/40 group-hover:scale-110 transition-transform">star</span>
+                        <img src="assets/Collage/fd5eeca072fb1c3d6dabca584abbf5b1_Original.jpg" alt="Leo Yang Collage 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
                     </div>
                 </div>
 
@@ -341,6 +341,86 @@
             </div>
         </section>
 
+        <!-- Piano Break Section -->
+        <section class="pt-12 pb-24 bg-gradient-to-b from-[#090C19] to-[#0d1226] relative w-full" id="piano-break">
+            <div class="relative w-full overflow-hidden flex justify-center">
+                <div class="flex min-w-max [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_25%)] [mask-image:linear-gradient(to_bottom,transparent_0%,black_25%)]" id="piano-keyboard">
+                    <!-- Octave 3 -->
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="C3" style="z-index: 100;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="C#3"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="D3" style="z-index: 99;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="D#3"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="E3" style="z-index: 98;"></div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="F3" style="z-index: 97;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="F#3"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="G3" style="z-index: 96;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="G#3"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="A3" style="z-index: 95;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="A#3"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="B3" style="z-index: 94;"></div>
+                    <!-- Octave 4 -->
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="C4" style="z-index: 93;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="C#4"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="D4" style="z-index: 92;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="D#4"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="E4" style="z-index: 91;"></div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="F4" style="z-index: 90;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="F#4"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="G4" style="z-index: 89;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="G#4"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="A4" style="z-index: 88;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="A#4"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="B4" style="z-index: 87;"></div>
+                    <!-- Octave 5 -->
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="C5" style="z-index: 86;">
+                        <div id="first-note" class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#FFF0BE] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-[0_0_30px_rgba(255,240,190,0.8)] z-20 cursor-pointer transition-colors duration-150 hover:brightness-110 animate-pulse" data-note="C#5"><div class="absolute inset-0 flex items-end justify-center pb-2 pointer-events-none"><span class="text-[#090C19] font-bold text-[10px] md:text-xs tracking-widest uppercase">Play</span></div></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="D5" style="z-index: 85;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="D#5"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="E5" style="z-index: 84;"></div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="F5" style="z-index: 83;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="F#5"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="G5" style="z-index: 82;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="G#5"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="A5" style="z-index: 81;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="A#5"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="B5" style="z-index: 80;"></div>
+                    <!-- Octave 6 -->
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="C6" style="z-index: 79;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="C#6"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="D6" style="z-index: 78;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="D#6"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="E6" style="z-index: 77;"></div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="F6" style="z-index: 76;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="F#6"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="G6" style="z-index: 75;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="G#6"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="A6" style="z-index: 74;">
+                        <div class="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50" data-note="A#6"></div>
+                    </div>
+                    <div class="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20" data-note="B6" style="z-index: 73;"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- Projects Section -->
         <section class="py-32 px-8 md:px-24 bg-[#0d1226]" id="projects">
             <div class="flex justify-between items-end mb-20">
@@ -356,7 +436,7 @@
                 <!-- Project 1 -->
                 <div class="group relative overflow-hidden rounded-xl glass-card aspect-video lg:aspect-[4/3]">
                     <img class="w-full h-full object-cover opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700"
-                        alt="Abstract golden financial dashboard" src="assets/gold_dashboard.png">
+                        alt="Abstract golden financial dashboard" src="assets/Projects/gold_dashboard.png">
                     <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-8">
                         <span
@@ -382,7 +462,7 @@
                 <!-- Project 2 -->
                 <div class="group relative overflow-hidden rounded-xl glass-card aspect-video lg:aspect-[4/3]">
                     <img class="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-all duration-700"
-                        alt="Abstract glowing data network" src="assets/reddit_stock.png">
+                        alt="Abstract glowing data network" src="assets/Projects/reddit_stock.png">
                     <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-8">
                         <span
@@ -408,7 +488,7 @@
                 <!-- Project 3 -->
                 <div class="group relative overflow-hidden rounded-xl glass-card aspect-video lg:aspect-[4/3]">
                     <img class="w-full h-full object-cover opacity-30 group-hover:scale-105 transition-all duration-700"
-                        alt="Abstract serene glowing wellness stones" src="assets/harmony_clinic.png">
+                        alt="Abstract serene glowing wellness stones" src="assets/Projects/harmony_clinic.png">
                     <div class="absolute inset-0 bg-[#32267c]/20 mix-blend-overlay"></div>
                     <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-8">
@@ -569,19 +649,19 @@
         class="w-full py-16 px-12 flex flex-col md:flex-row justify-between items-center border-t border-[#FFF0BE]/5 bg-[#090C19]">
         <div class="flex gap-8 items-center">
             <a class="group flex flex-col items-center" href="https://github.com/leobyang" target="_blank">
-                <img src="assets/Github.svg" alt="Github"
+                <img src="assets/Socials/Github.svg" alt="Github"
                     class="w-8 h-8 opacity-50 group-hover:opacity-100 transition-opacity">
                 <span class="font-neutraface text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">Github</span>
             </a>
             <a class="group flex flex-col items-center" href="https://www.linkedin.com/in/leobyang" target="_blank">
-                <img src="assets/Linkedin.svg" alt="LinkedIn"
+                <img src="assets/Socials/Linkedin.svg" alt="LinkedIn"
                     class="w-8 h-8 opacity-50 group-hover:opacity-100 transition-opacity">
                 <span
                     class="font-neutraface text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">LinkedIn</span>
             </a>
             <a class="group flex flex-col items-center"
                 href="https://open.spotify.com/user/22bpjqsoomjsikd5dujqcnxpi?si=002ea0ed9ba74362" target="_blank">
-                <img src="assets/Spotify.svg" alt="Spotify"
+                <img src="assets/Socials/Spotify.svg" alt="Spotify"
                     class="w-8 h-8 opacity-50 group-hover:opacity-100 transition-opacity">
                 <span
                     class="font-neutraface text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">Spotify</span>
@@ -758,6 +838,87 @@
             requestAnimationFrame(animateParticles);
         };
         animateParticles();
+
+        // --- Tone.js Piano Logic ---
+        const synth = new Tone.PolySynth(Tone.Synth, {
+            oscillator: { type: "triangle" },
+            envelope: { attack: 0.05, decay: 0.1, sustain: 0.3, release: 1 }
+        }).toDestination();
+
+        const melody = [
+            { note: "C#5", dur: "8n", delay: 0 },
+            { note: "F#5", dur: "8n", delay: 0.25 },
+            { note: "G#5", dur: "8n", delay: 0.5 },
+            { note: "A5",  dur: "8n", delay: 0.75 },
+            { note: "G#5", dur: "8n", delay: 1.0 },
+            { note: "F#5", dur: "8n", delay: 1.25 },
+            { note: "D5",  dur: "4n", delay: 1.5 },
+            
+            { note: "D5",  dur: "8n", delay: 2.5 },
+            { note: "F#5", dur: "8n", delay: 2.75 },
+            { note: "G#5", dur: "8n", delay: 3.0 },
+            { note: "A5",  dur: "8n", delay: 3.25 },
+            { note: "G#5", dur: "8n", delay: 3.5 },
+            { note: "F#5", dur: "8n", delay: 3.75 },
+            { note: "C#5", dur: "4n", delay: 4.0 },
+
+            { note: "C#5", dur: "8n", delay: 5.0 },
+            { note: "F#5", dur: "8n", delay: 5.25 },
+            { note: "G#5", dur: "8n", delay: 5.5 },
+            { note: "A5",  dur: "8n", delay: 5.75 },
+            { note: "G#5", dur: "8n", delay: 6.0 },
+            { note: "F#5", dur: "8n", delay: 6.25 },
+            { note: "D5",  dur: "4n", delay: 6.5 }
+        ];
+
+        let hasPlayedTheme = false;
+        
+        const playNoteVisual = (noteStr, durationSecs) => {
+            const keyEl = document.querySelector(`.piano-key[data-note="${noteStr}"]`);
+            if (keyEl) {
+                const isWhite = keyEl.classList.contains('white-key');
+                keyEl.style.backgroundColor = isWhite ? 'rgba(255, 240, 190, 0.4)' : '#FFF0BE';
+                setTimeout(() => {
+                    keyEl.style.backgroundColor = '';
+                }, durationSecs * 1000);
+            }
+        };
+
+        const playTheme = async () => {
+            if (hasPlayedTheme) return;
+            hasPlayedTheme = true;
+            await Tone.start();
+            
+            const firstNoteEl = document.getElementById('first-note');
+            if (firstNoteEl) {
+                firstNoteEl.classList.remove('animate-pulse', 'shadow-[0_0_30px_rgba(255,240,190,0.8)]', 'bg-[#FFF0BE]', 'hover:brightness-110');
+                firstNoteEl.classList.add('bg-[#090C19]', 'shadow-inner', 'hover:bg-[#5f2fbd]/50');
+                firstNoteEl.innerHTML = '';
+            }
+
+            const now = Tone.now();
+            melody.forEach(event => {
+                synth.triggerAttackRelease(event.note, event.dur, now + event.delay);
+                setTimeout(() => {
+                    playNoteVisual(event.note, 0.2);
+                }, event.delay * 1000);
+            });
+        };
+
+        document.querySelectorAll('.piano-key').forEach(key => {
+            key.addEventListener('click', async (e) => {
+                e.stopPropagation(); // stop click from triggering white key underneath
+                await Tone.start();
+                const note = key.getAttribute('data-note');
+                
+                if (note === 'C#5' && !hasPlayedTheme) {
+                    playTheme();
+                } else {
+                    synth.triggerAttackRelease(note, "8n");
+                    playNoteVisual(note, 0.2);
+                }
+            });
+        });
     </script>
 </body>
 
