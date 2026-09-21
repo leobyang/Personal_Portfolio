@@ -170,12 +170,15 @@
     <nav id="main-nav"
         class="fixed top-0 left-1/2 -translate-x-1/2 z-50 flex items-center px-6 py-3 w-max max-w-[calc(100%-2rem)] bg-[#180164]/40 backdrop-blur-2xl rounded-full border border-[#FFF0BE]/10 mt-6 shadow-[0_20px_50px_rgba(23,0,99,0.5)]">
         <div id="nav-name" class="overflow-hidden max-w-0 opacity-0 -translate-x-4">
-            <a href="#" class="block text-lg font-bold tracking-widest text-white font-neutraface uppercase whitespace-nowrap pr-8 hover:text-[#FFF0BE] transition-colors">
+            <a href="#"
+                class="block text-lg font-bold tracking-widest text-white font-neutraface uppercase whitespace-nowrap pr-8 hover:text-[#FFF0BE] transition-colors">
                 Leo Yang
             </a>
         </div>
         <!-- Desktop Links -->
         <div class="hidden lg:flex items-center gap-6 lg:pr-8">
+            <a class="font-neutraface tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all"
+                href="#about">About Me</a>
             <a class="font-neutraface tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all"
                 href="#experience">Experience</a>
             <a class="font-neutraface tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all"
@@ -201,6 +204,8 @@
         id="mobile-menu">
         <div class="flex flex-col gap-4 text-center">
             <a class="py-3 font-neutraface text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]"
+                href="#about">About Me</a>
+            <a class="py-3 font-neutraface text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]"
                 href="#experience">Experience</a>
             <a class="py-3 font-neutraface text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]"
                 href="#projects">Projects</a>
@@ -225,22 +230,16 @@
                 class="absolute inset-0 bg-gradient-to-b from-transparent via-[#090C19]/20 to-[#090C19] pointer-events-none">
             </div>
 
-            <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center relative z-10">
-                <div class="lg:col-span-8">
+            <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+                <div class="lg:col-span-8 lg:pl-16">
                     <h1 id="hero-name"
-                        class="font-custom uppercase text-6xl sm:text-7xl md:text-9xl font-bold tracking-tighter leading-tight mb-8 text-white">
+                        class="font-custom uppercase text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[11rem] font-bold tracking-tighter leading-none mb-8 text-white whitespace-nowrap">
                         LEO YANG
                     </h1>
                     <p
-                        class="font-neutraface text-xs md:text-sm tracking-widest uppercase text-on-surface-variant max-w-2xl leading-relaxed opacity-90 text-white">
+                        class="font-neutraface text-sm md:text-base lg:text-lg tracking-widest uppercase text-on-surface-variant max-w-2xl leading-relaxed opacity-90 text-white">
                         Hi, I'm Leo, an undergraduate student studying Software Engineering and Business at the Ivey
-                        School of Business. I love building cool apps and analyzing trends in the tech
-                        industry.<br><br>Away from the keyboard,
-                        you'll
-                        find me experimenting with new recipes, watching F1 or basketball with my buddies or listening
-                        to
-                        Taylor Swift and Mandopop.
-
+                        School of Business.
                     </p>
                 </div>
                 <!-- Profile Picture -->
@@ -251,7 +250,8 @@
                         </div>
                         <div
                             class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-surface-container-high rounded-[50%] overflow-hidden glass-card flex items-center justify-center border border-[#FFF0BE]/20 z-10">
-                            <img src="assets/headshot.jpeg" alt="Leo Yang Headshot" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <img src="assets/headshot.jpeg" alt="Leo Yang Headshot"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
                         </div>
                     </div>
                 </div>
@@ -263,6 +263,41 @@
                         class="font-neutraface text-[10px] tracking-[0.5em] uppercase text-[#FFF0BE]/30 rotate-90 origin-right translate-y-16">Scroll
                         to explore</span>
                     <div class="w-px h-24 bg-gradient-to-b from-transparent via-primary-fixed/50 to-transparent"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="py-32 px-8 md:px-24 bg-[#0d1226]" id="about">
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                
+                <!-- Left: Photo Collage Placeholder -->
+                <div class="relative w-full aspect-square md:aspect-[4/3] lg:aspect-square">
+                    <!-- Base Image Placeholder -->
+                    <div class="absolute top-0 left-0 w-3/5 h-3/5 glass-card rounded-2xl -rotate-6 flex items-center justify-center border border-[#FFF0BE]/10 shadow-2xl z-10 bg-surface-container-high/80 overflow-hidden group">
+                        <span class="material-symbols-outlined text-5xl text-[#FFF0BE]/30 group-hover:scale-110 transition-transform">photo_camera</span>
+                    </div>
+                    <!-- Right Overlay Placeholder -->
+                    <div class="absolute top-1/4 right-0 w-2/5 h-2/5 glass-card rounded-2xl rotate-3 flex items-center justify-center border border-[#FFF0BE]/10 shadow-2xl z-20 bg-surface-container-high/90 overflow-hidden group">
+                        <span class="material-symbols-outlined text-4xl text-[#FFF0BE]/30 group-hover:scale-110 transition-transform">image</span>
+                    </div>
+                    <!-- Bottom Overlay Placeholder -->
+                    <div class="absolute bottom-0 left-1/4 w-1/2 h-1/2 glass-card rounded-2xl rotate-2 flex items-center justify-center border border-[#FFF0BE]/10 shadow-2xl z-30 bg-surface-container-high overflow-hidden group">
+                        <span class="material-symbols-outlined text-5xl text-[#FFF0BE]/30 group-hover:scale-110 transition-transform">portrait</span>
+                    </div>
+                    <!-- Small Accent Placeholder -->
+                    <div class="absolute bottom-1/4 right-1/4 w-1/4 h-1/4 glass-card rounded-xl -rotate-12 flex items-center justify-center border border-[#FFF0BE]/10 shadow-2xl z-40 bg-primary-fixed/5 backdrop-blur-md overflow-hidden group">
+                        <span class="material-symbols-outlined text-3xl text-[#FFF0BE]/40 group-hover:scale-110 transition-transform">star</span>
+                    </div>
+                </div>
+
+                <!-- Right: Text Content -->
+                <div class="flex flex-col justify-center">
+                    <h2 class="font-custom uppercase text-4xl md:text-5xl font-bold tracking-tighter text-white">About Me</h2>
+                    <div class="w-24 h-1 bg-primary-fixed mt-4 mb-8"></div>
+                    <p class="font-neutraface text-lg md:text-xl text-on-surface-variant leading-relaxed text-white">
+                        I love building cool apps and analyzing trends in the tech industry.<br><br>Away from the keyboard, you'll find me experimenting with new recipes, watching F1 or basketball with my buddies or listening to Taylor Swift and Mandopop.
+                    </p>
                 </div>
             </div>
         </section>
@@ -312,9 +347,8 @@
                 <div>
                     <h2 class="font-custom uppercase text-4xl md:text-5xl font-bold tracking-tighter text-white">
                         Selected Works</h2>
-                    <p class="font-neutraface text-on-surface-variant mt-4 text-white">Engineering narratives captured
-                        in
-                        code.</p>
+                    <p class="font-neutraface text-on-surface-variant mt-4 text-white">A curated collection of my
+                        proudest builds and experiments.</p>
                 </div>
             </div>
             <!-- 3 Columns Grid Layout on Desktop -->
@@ -521,9 +555,7 @@
             <div class="max-w-4xl mx-auto text-center">
                 <h2
                     class="font-custom uppercase text-5xl md:text-7xl font-bold tracking-tighter text-white mb-12 opacity-100">
-                    Let's collaborate.</h2>
-                <p class="font-neutraface text-xl mb-12 text-white">I'm currently looking for new opportunities to build
-                    complex systems. Drop a line if you want to chat about code or art.</p>
+                    Let's connect!</h2>
                 <a class="inline-block bg-[#FFF0BE] text-[#38300e] font-neutraface font-bold px-12 py-6 rounded-full text-xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-[#FFF0BE]/10 hover:shadow-[#FFF0BE]/30 brightness-110"
                     href="mailto:yangleo2005@gmail.com">
                     Email me!
@@ -536,22 +568,23 @@
     <footer
         class="w-full py-16 px-12 flex flex-col md:flex-row justify-between items-center border-t border-[#FFF0BE]/5 bg-[#090C19]">
         <div class="flex gap-8 items-center">
-            <a class="group flex flex-col items-center" href="#">
-                <span
-                    class="material-symbols-outlined text-3xl text-[#FFF0BE]/50 group-hover:text-[#FFF0BE] transition-colors">code</span>
+            <a class="group flex flex-col items-center" href="https://github.com/leobyang" target="_blank">
+                <img src="assets/Github.svg" alt="Github"
+                    class="w-8 h-8 opacity-50 group-hover:opacity-100 transition-opacity">
                 <span class="font-neutraface text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">Github</span>
             </a>
-            <a class="group flex flex-col items-center" href="#">
-                <span
-                    class="material-symbols-outlined text-3xl text-[#FFF0BE]/50 group-hover:text-[#FFF0BE] transition-colors">hub</span>
+            <a class="group flex flex-col items-center" href="https://www.linkedin.com/in/leobyang" target="_blank">
+                <img src="assets/Linkedin.svg" alt="LinkedIn"
+                    class="w-8 h-8 opacity-50 group-hover:opacity-100 transition-opacity">
                 <span
                     class="font-neutraface text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">LinkedIn</span>
             </a>
-            <a class="group flex flex-col items-center" href="#">
+            <a class="group flex flex-col items-center"
+                href="https://open.spotify.com/user/22bpjqsoomjsikd5dujqcnxpi?si=002ea0ed9ba74362" target="_blank">
+                <img src="assets/Spotify.svg" alt="Spotify"
+                    class="w-8 h-8 opacity-50 group-hover:opacity-100 transition-opacity">
                 <span
-                    class="material-symbols-outlined text-3xl text-[#FFF0BE]/50 group-hover:text-[#FFF0BE] transition-colors">alternate_email</span>
-                <span
-                    class="font-neutraface text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">Twitter</span>
+                    class="font-neutraface text-[10px] tracking-widest uppercase mt-2 text-[#FFF0BE]/50">Spotify</span>
             </a>
         </div>
     </footer>
@@ -637,6 +670,94 @@
             // Start the continuous rendering loop
             renderLoop();
         }
+
+        // --- Custom Star Particle Cursor Trail ---
+        const canvas = document.createElement('canvas');
+        canvas.id = 'star-trail';
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100vw';
+        canvas.style.height = '100vh';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.zIndex = '9999';
+        document.body.appendChild(canvas);
+
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        
+        const resizeCanvas = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        let mouse = { x: 0, y: 0 };
+        let lastMouse = { x: 0, y: 0 };
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+            
+            // Spawn a particle based on distance to prevent clumping
+            const dist = Math.hypot(mouse.x - lastMouse.x, mouse.y - lastMouse.y);
+            if (dist > 8) {
+                particles.push({
+                    x: mouse.x,
+                    y: mouse.y,
+                    size: Math.random() * 6 + 4,
+                    life: 1,
+                    velX: (Math.random() - 0.5) * 1,
+                    velY: (Math.random() - 0.5) * 1 + 0.5, // slight downward drift
+                    rotation: Math.random() * Math.PI,
+                    rotSpeed: (Math.random() - 0.5) * 0.1
+                });
+                lastMouse = { x: mouse.x, y: mouse.y };
+            }
+        });
+
+        const drawStar = (x, y, radius, opacity, rotation) => {
+            ctx.save();
+            ctx.beginPath();
+            ctx.translate(x, y);
+            ctx.rotate(rotation);
+            ctx.globalAlpha = opacity;
+            ctx.fillStyle = '#FFF0BE';
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = '#FFF0BE';
+            // Draw a 4-point sparkle
+            for (let i = 0; i < 4; i++) {
+                ctx.rotate(Math.PI / 2);
+                ctx.lineTo(0, -radius);
+                ctx.lineTo(radius * 0.15, -radius * 0.15);
+            }
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        };
+
+        const animateParticles = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                p.x += p.velX;
+                p.y += p.velY;
+                p.life -= 0.015; // fade speed
+                p.rotation += p.rotSpeed;
+                
+                if (p.life <= 0) {
+                    particles.splice(i, 1);
+                    i--;
+                    continue;
+                }
+                
+                drawStar(p.x, p.y, p.size * p.life, p.life, p.rotation);
+            }
+            requestAnimationFrame(animateParticles);
+        };
+        animateParticles();
     </script>
 </body>
 
