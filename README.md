@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/files/headshot.jpeg" alt="Leo Yang" width="150" style="border-radius:50%">
+  <img src="public/assets/files/headshot.jpeg" alt="Leo Yang" width="150" style="border-radius:50%">
   <h1>🌟 Leo Yang – Personal Portfolio</h1>
   <p><strong>Software Engineering & Business Undergrad @ Ivey School of Business</strong></p>
   <p>🔗 <strong><a href="https://leoyang.me">leoyang.me</a></strong></p>
