@@ -7,12 +7,10 @@ import BlogOverview from "@/components/BlogOverview";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import StarCursor from "@/components/StarCursor";
 
 export default function Home() {
   return (
     <>
-      <StarCursor />
       
       {/* Subtle Grain Overlay */}
       <div className="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay z-[100]">
