@@ -5,13 +5,17 @@ import Link from "next/link";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      // Fade out over the first 300px of scrolling
+      const progress = Math.min(Math.max(window.scrollY / 300, 0), 1);
+      setScrollProgress(progress);
     };
-    window.addEventListener("scroll", handleScroll);
+    
+    handleScroll(); // Initialize on mount
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -21,7 +25,14 @@ export default function Navbar() {
         id="main-nav"
         className="fixed top-0 left-1/2 -translate-x-1/2 z-50 flex items-center px-6 py-3 w-max max-w-[calc(100%-2rem)] bg-[#180164]/40 backdrop-blur-2xl rounded-full border border-[#FFF0BE]/10 mt-6 shadow-[0_20px_50px_rgba(23,0,99,0.5)]"
       >
-        <div id="nav-name" className={`overflow-hidden transition-all duration-500 ease-in-out ${isScrolled ? "max-w-0 opacity-0" : "max-w-[200px] opacity-100"}`}>
+        <div 
+          id="nav-name" 
+          className="overflow-hidden"
+          style={{
+            maxWidth: `${200 * (1 - scrollProgress)}px`,
+            opacity: 1 - scrollProgress,
+          }}
+        >
           <Link
             href="#"
             className="block text-lg font-bold tracking-widest text-white font-neutraface uppercase whitespace-nowrap pr-8 hover:text-[#FFF0BE] transition-colors"
