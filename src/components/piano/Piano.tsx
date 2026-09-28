@@ -20,9 +20,11 @@ export default function Piano() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [numOctaves, setNumOctaves] = useState(4); // Default to 4 octaves (e.g. Octave 3 to 6)
   const [isPlaying, setIsPlaying] = useState(false);
+  const [hasPlayed, setHasPlayed] = useState(false);
   const [audioReady, setAudioReady] = useState(false);
   const samplerRef = useRef<Tone.Sampler | null>(null);
   const partRef = useRef<Tone.Part | null>(null);
+  const hasStartedPart = useRef(false);
   const activeSynths = useRef<Map<string, number>>(new Map());
 
   // 1. Calculate how many octaves we need based on container width
@@ -166,15 +168,27 @@ export default function Piano() {
     if (isPlaying) {
       Tone.Transport.pause();
     } else {
-      // Start transport
-      if (Tone.Transport.state !== "started") {
-        Tone.Transport.start();
-      }
-      if (partRef.current) {
+      Tone.Transport.start();
+      if (!hasStartedPart.current && partRef.current) {
         partRef.current.start(0);
+        hasStartedPart.current = true;
       }
     }
     setIsPlaying(!isPlaying);
+  };
+
+  const replayPlayback = async () => {
+    if (!audioReady) return;
+    if (Tone.context.state !== "running") {
+      await Tone.start();
+    }
+    Tone.Transport.stop();
+    Tone.Transport.start();
+    if (!hasStartedPart.current && partRef.current) {
+      partRef.current.start(0);
+      hasStartedPart.current = true;
+    }
+    setIsPlaying(true);
   };
 
   // 3. Generate Octaves dynamically
@@ -195,55 +209,87 @@ export default function Piano() {
       <div className="relative w-full overflow-hidden flex justify-center" ref={containerRef}>
         <div className="flex min-w-max [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_25%)] [mask-image:linear-gradient(to_bottom,transparent_0%,black_25%)]">
           {octaves.map((octaveData) =>
-            octaveData.whiteKeys.map((wk, idx) => (
-              <div
-                key={wk.note}
-                data-note={wk.note}
-                onClick={() => playNote(wk.note)}
-                className="piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-colors duration-150 hover:bg-white/20"
-                style={{ zIndex: 100 - idx }}
-              >
-                {wk.hasBlack && (
-                  <div
-                    data-note={`${wk.note.charAt(0)}#${octaveData.octave}`}
-                    onClick={(e) => {
-                      e.stopPropagation(); // prevent white key click
-                      playNote(`${wk.note.charAt(0)}#${octaveData.octave}`);
-                    }}
-                    className="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50"
-                  ></div>
-                )}
-              </div>
-            ))
+            octaveData.whiteKeys.map((wk, idx) => {
+              const isPlayKey = !hasPlayed && wk.note === "C4";
+              return (
+                <div
+                  key={wk.note}
+                  data-note={wk.note}
+                  onClick={() => {
+                    if (isPlayKey) {
+                      setHasPlayed(true);
+                      togglePlayback();
+                    } else {
+                      playNote(wk.note);
+                    }
+                  }}
+                  className={`piano-key white-key relative w-12 md:w-16 h-48 md:h-80 bg-gradient-to-b from-transparent to-white/10 border-x border-b border-t-0 border-white/10 rounded-b-xl backdrop-blur-md flex-shrink-0 cursor-pointer transition-all duration-300 hover:bg-white/20 flex flex-col justify-end items-center pb-8 md:pb-12 ${isPlayKey ? '!from-primary-fixed/50 !to-primary-fixed !shadow-[0_0_20px_rgba(241,226,177,0.5)] animate-pulse' : ''}`}
+                  style={{ zIndex: 100 - idx }}
+                >
+                  {isPlayKey && audioReady && (
+                    <span className="text-[#180164] font-neutraface font-bold tracking-widest text-xs md:text-sm -rotate-90 origin-center mb-8">PLAY</span>
+                  )}
+                  {wk.hasBlack && (
+                    <div
+                      data-note={`${wk.note.charAt(0)}#${octaveData.octave}`}
+                      onClick={(e) => {
+                        e.stopPropagation(); // prevent white key click
+                        playNote(`${wk.note.charAt(0)}#${octaveData.octave}`);
+                      }}
+                      className="piano-key black-key absolute top-0 -right-4 md:-right-5 w-8 md:w-10 h-32 md:h-48 bg-[#090C19] border-x border-b border-t-0 border-[#5f2fbd]/40 rounded-b-lg shadow-inner z-20 cursor-pointer transition-colors duration-150 hover:bg-[#5f2fbd]/50"
+                    ></div>
+                  )}
+                </div>
+              );
+            })
           )}
         </div>
       </div>
 
       {/* Controls */}
-      <div className="mt-12 flex justify-center transition-opacity duration-1000">
-        <button
-          onClick={togglePlayback}
-          className={`flex items-center gap-3 px-6 py-3 rounded-full border text-[#FFF0BE] font-neutraface tracking-widest text-xs uppercase transition-all shadow-[0_0_20px_rgba(255,240,190,0.15)] z-50 ${
-            audioReady
-              ? "bg-[#180164] border-[#FFF0BE]/20 hover:bg-[#180164]/80 cursor-pointer"
-              : "bg-[#180164]/50 border-white/10 cursor-not-allowed opacity-50"
-          }`}
-          disabled={!audioReady}
-        >
-          <span className="w-4 h-4 flex items-center justify-center">
-            {isPlaying ? (
+      {hasPlayed && (
+        <div className="mt-12 flex justify-center gap-4 transition-opacity duration-1000 animate-in fade-in slide-in-from-bottom-4">
+          <button
+            onClick={togglePlayback}
+            className={`flex items-center gap-3 px-6 py-3 rounded-full border text-[#FFF0BE] font-neutraface tracking-widest text-xs uppercase transition-all shadow-[0_0_20px_rgba(255,240,190,0.15)] z-50 ${
+              audioReady
+                ? "bg-[#180164] border-[#FFF0BE]/20 hover:bg-[#180164]/80 cursor-pointer"
+                : "bg-[#180164]/50 border-white/10 cursor-not-allowed opacity-50"
+            }`}
+            disabled={!audioReady}
+          >
+            <span className="w-4 h-4 flex items-center justify-center">
+              {isPlaying ? (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                  <path fillRule="evenodd" d="M6.75 5.25a.75.75 0 01.75-.75H9a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H7.5a.75.75 0 01-.75-.75V5.25zm7.5 0A.75.75 0 0115 4.5h1.5a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H15a.75.75 0 01-.75-.75V5.25z" clipRule="evenodd" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                  <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clipRule="evenodd" />
+                </svg>
+              )}
+            </span>
+            <span>{isPlaying ? "Pause" : "Resume"}</span>
+          </button>
+
+          <button
+            onClick={replayPlayback}
+            className={`flex items-center gap-3 px-6 py-3 rounded-full border text-[#FFF0BE] font-neutraface tracking-widest text-xs uppercase transition-all shadow-[0_0_20px_rgba(255,240,190,0.15)] z-50 ${
+              audioReady
+                ? "bg-[#180164] border-[#FFF0BE]/20 hover:bg-[#180164]/80 cursor-pointer"
+                : "bg-[#180164]/50 border-white/10 cursor-not-allowed opacity-50"
+            }`}
+            disabled={!audioReady}
+          >
+            <span className="w-4 h-4 flex items-center justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                <path fillRule="evenodd" d="M6.75 5.25a.75.75 0 01.75-.75H9a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H7.5a.75.75 0 01-.75-.75V5.25zm7.5 0A.75.75 0 0115 4.5h1.5a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H15a.75.75 0 01-.75-.75V5.25z" clipRule="evenodd" />
+                <path fillRule="evenodd" d="M4.755 10.059a7.5 7.5 0 0112.548-3.364l1.903 1.903h-3.183a.75.75 0 100 1.5h4.992a.75.75 0 00.75-.75V4.356a.75.75 0 00-1.5 0v3.18l-1.9-1.9A9 9 0 003.306 9.67a.75.75 0 101.45.388zm15.408 3.352a.75.75 0 00-.919.53 7.5 7.5 0 01-12.548 3.364l-1.902-1.903h3.183a.75.75 0 000-1.5H2.984a.75.75 0 00-.75.75v4.992a.75.75 0 001.5 0v-3.18l1.9 1.9a9 9 0 0014.56-4.024.75.75 0 00-.53-.918z" clipRule="evenodd" />
               </svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clipRule="evenodd" />
-              </svg>
-            )}
-          </span>
-          <span>{audioReady ? (isPlaying ? "Pause" : "Play") : "Loading Audio..."}</span>
-        </button>
-      </div>
+            </span>
+            <span>Replay</span>
+          </button>
+        </div>
+      )}
     </section>
   );
 }
