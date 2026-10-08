@@ -9,8 +9,8 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Fade out over the first 300px of scrolling
-      const progress = Math.min(Math.max(window.scrollY / 300, 0), 1);
+      // Fade IN between 400px and 600px of scrolling (after passing the hero section)
+      const progress = Math.min(Math.max((window.scrollY - 400) / 200, 0), 1);
       setScrollProgress(progress);
     };
     
@@ -29,8 +29,8 @@ export default function Navbar() {
           id="nav-name" 
           className="overflow-hidden"
           style={{
-            maxWidth: `${200 * (1 - scrollProgress)}px`,
-            opacity: 1 - scrollProgress,
+            maxWidth: `${200 * scrollProgress}px`,
+            opacity: scrollProgress,
           }}
         >
           <Link
