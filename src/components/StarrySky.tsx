@@ -30,8 +30,8 @@ export default function StarrySky({ posts }: { posts: BlogPost[] }) {
     let stars: Star[] = [];
 
     const resize = () => {
-      canvas.width = canvas.parentElement?.clientWidth || window.innerWidth;
-      canvas.height = canvas.parentElement?.clientHeight || window.innerHeight;
+      canvas.width = canvas.clientWidth || window.innerWidth;
+      canvas.height = canvas.clientHeight || window.innerHeight;
       initStars();
     };
 
@@ -108,7 +108,7 @@ export default function StarrySky({ posts }: { posts: BlogPost[] }) {
       for (const star of stars) {
         if (star.isPost) {
           const dist = Math.hypot(star.x - x, star.y - y);
-          if (dist < 15) { // Hover radius
+          if (dist < 30) { // Hover radius
             setHoveredPost(star.post!);
             canvas.style.cursor = "pointer";
             found = true;
@@ -130,7 +130,7 @@ export default function StarrySky({ posts }: { posts: BlogPost[] }) {
       for (const star of stars) {
         if (star.isPost) {
           const dist = Math.hypot(star.x - x, star.y - y);
-          if (dist < 15 && star.post) {
+          if (dist < 30 && star.post) {
             router.push(`/blog/${star.post.id}`);
             break;
           }
