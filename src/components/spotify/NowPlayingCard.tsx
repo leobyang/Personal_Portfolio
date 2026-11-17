@@ -124,7 +124,7 @@ export default function NowPlayingCard({
 
   if (!data?.track) {
     return (
-      <p className="font-neutraface text-[#e4dfff]/60">Nothing on the turntable right now.</p>
+      <p className="font-neutraface text-lg text-[#e4dfff]/60">Nothing on the turntable right now.</p>
     );
   }
 
@@ -134,34 +134,84 @@ export default function NowPlayingCard({
 
   const body = (
     <>
-      <AlbumArt src={data.albumArt} size={128} rounded="rounded-xl" />
-      <div className="min-w-0 flex-1">
-        <p className="flex items-center gap-2 font-neutraface text-sm text-[#FFF0BE]/80">
+      <Turntable art={data.albumArt} spinning={data.isPlaying} />
+      <div className="min-w-0 flex-1 text-center sm:text-left">
+        <p className="flex items-center justify-center sm:justify-start gap-2.5 font-neutraface uppercase tracking-widest text-xs text-[#FFF0BE]/80">
           <Equalizer playing={data.isPlaying} />
           <span>{status}</span>
         </p>
-        <p className="mt-3 font-neutraface text-2xl md:text-3xl text-white leading-tight line-clamp-2">
+        <p className="mt-4 font-neutraface text-3xl md:text-5xl text-white leading-[1.05] tracking-tight line-clamp-2 text-balance">
           {data.track}
         </p>
         {artists && (
-          <p className="mt-1 font-neutraface text-base text-[#e4dfff]/70 truncate">{artists}</p>
+          <p className="mt-2 font-neutraface text-lg md:text-xl text-[#e4dfff]/70 truncate">{artists}</p>
+        )}
+        {data.url && (
+          <p className="mt-5 inline-flex items-center gap-1.5 font-neutraface text-sm text-[#FFF0BE]/60 transition-colors group-hover:text-[#FFF0BE] group-focus-visible:text-[#FFF0BE]">
+            Listen on Spotify
+            <span aria-hidden="true" className="transition-transform motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5">
+              ↗
+            </span>
+          </p>
         )}
       </div>
     </>
   );
 
-  const cls = "flex items-center gap-5 sm:gap-7 rounded-xl -m-2 p-2";
-  return data.url ? (
-    <a
-      href={data.url}
-      target="_blank"
-      rel="noopener"
-      className={`${cls} transition-colors hover:bg-[#FFF0BE]/5 focus-visible:bg-[#FFF0BE]/5 focus-visible:outline focus-visible:outline-1 focus-visible:outline-[#FFF0BE]/40`}
-      aria-label={`${status}: ${data.track}${artists ? ` by ${artists}` : ""}. Open on Spotify (new tab)`}
-    >
-      {body}
-    </a>
-  ) : (
-    <div className={cls}>{body}</div>
+  const cls = "group relative flex flex-col sm:flex-row items-center gap-8 sm:gap-12 lg:gap-16 rounded-3xl";
+  return (
+    <div className="relative">
+      {/* Ambient glow: the album art, blurred way out, tints the band behind the record. */}
+      {data.albumArt && (
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-0 flex items-center justify-start overflow-visible">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={data.albumArt}
+            alt=""
+            className="h-[140%] w-auto sm:w-[60%] max-w-none object-cover opacity-35 blur-[90px] saturate-150 mx-auto sm:mx-0"
+          />
+        </div>
+      )}
+      {data.url ? (
+        <a
+          href={data.url}
+          target="_blank"
+          rel="noopener"
+          className={`${cls} focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-8 focus-visible:outline-[#FFF0BE]/40`}
+          aria-label={`${status}: ${data.track}${artists ? ` by ${artists}` : ""}. Open on Spotify (new tab)`}
+        >
+          {body}
+        </a>
+      ) : (
+        <div className={cls}>{body}</div>
+      )}
+    </div>
+  );
+}
+
+/**
+ * Album sleeve with a record sliding out of it. The record spins while something is
+ * playing (only with prefers-reduced-motion: no-preference; see .vinyl-spin in globals.css).
+ */
+function Turntable({ art, spinning }: { art: string | null; spinning: boolean }) {
+  return (
+    <div aria-hidden="true" className="relative shrink-0 w-[232px] h-[160px] sm:w-[290px] sm:h-[200px]">
+      <div
+        className={`vinyl absolute top-0 left-[72px] sm:left-[90px] h-[160px] w-[160px] sm:h-[200px] sm:w-[200px] transition-transform duration-500 ease-out motion-safe:group-hover:translate-x-3 ${
+          spinning ? "" : "motion-safe:group-hover:rotate-12"
+        }`}
+      >
+        <div className={`vinyl-disc absolute inset-0 rounded-full ${spinning ? "vinyl-spin" : ""}`}>
+          <div className="absolute inset-[31%] overflow-hidden rounded-full">
+            <AlbumArt src={art} size={200} rounded="rounded-full" className="!w-full !h-full" />
+          </div>
+          <div className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#090C19]" />
+        </div>
+        <div className="vinyl-sheen absolute inset-0 rounded-full" />
+      </div>
+      <div className="absolute top-0 left-0 h-[160px] w-[160px] sm:h-[200px] sm:w-[200px] overflow-hidden rounded-lg shadow-[0_24px_60px_-12px_rgba(0,0,0,0.7)] ring-1 ring-white/10">
+        <AlbumArt src={art} size={200} rounded="rounded-none" className="!w-full !h-full" />
+      </div>
+    </div>
   );
 }

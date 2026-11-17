@@ -99,7 +99,7 @@ export default function PostPanel({
       window.setTimeout(() => {
         document.documentElement.style.scrollBehavior = "";
       }, 500);
-    }, prefersReducedMotion() ? 120 : 420);
+    }, prefersReducedMotion() ? 120 : 900);
   };
 
   // Keep the latest handlers for the window listener without re-subscribing.
@@ -166,6 +166,7 @@ export default function PostPanel({
 
   return (
     <div className="fixed inset-0 z-10 flex items-center justify-center md:p-8 pointer-events-none">
+      {phase === "closing" && <div aria-hidden="true" className="close-flare" />}
       <div ref={panelRef} className={`relative pointer-events-auto w-full h-[100dvh] md:h-[85vh] md:max-w-[52rem] ${animation}`}>
         {prev && (
           <Link

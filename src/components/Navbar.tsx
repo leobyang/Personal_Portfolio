@@ -5,13 +5,14 @@ import Link from "next/link";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [showName, setShowName] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Fade IN between 400px and 600px of scrolling (after passing the hero section)
-      const progress = Math.min(Math.max((window.scrollY - 400) / 200, 0), 1);
-      setScrollProgress(progress);
+      // Show the name once past the hero. It's a plain on/off switch; the CSS transition
+      // on #nav-name runs at a fixed pace (900 ms), so even jumping straight to the bottom of the
+      // page slides it in smoothly instead of snapping.
+      setShowName(window.scrollY > 500);
     };
     
     handleScroll(); // Initialize on mount
@@ -27,18 +28,21 @@ export default function Navbar() {
       >
         <div 
           id="nav-name" 
-          className="overflow-hidden"
-          style={{
-            maxWidth: `${200 * scrollProgress}px`,
-            opacity: scrollProgress,
-          }}
+          // Animating a 0fr → 1fr grid column eases to the name's exact width.
+          className={`grid transition-[grid-template-columns,opacity] duration-[900ms] ease-[cubic-bezier(0.65,0,0.35,1)] motion-reduce:transition-opacity motion-reduce:duration-300 ${
+            showName ? "grid-cols-[1fr] opacity-100" : "grid-cols-[0fr] opacity-0"
+          }`}
+          aria-hidden={!showName}
         >
+          <div className="min-w-0 overflow-hidden">
           <Link
             href="#"
+            tabIndex={showName ? undefined : -1}
             className="block text-lg font-bold tracking-widest text-white font-neutraface uppercase whitespace-nowrap pr-8 hover:text-[#FFF0BE] transition-colors"
           >
             Leo Yang
           </Link>
+          </div>
         </div>
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-6 lg:pr-8">

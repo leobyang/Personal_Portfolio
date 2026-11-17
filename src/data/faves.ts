@@ -14,6 +14,8 @@ export type TopMovie = {
   title: string;
   year: number | null;
   note?: string;
+  /** Poster URL. Leave out to look it up on Wikipedia at build time. */
+  poster?: string;
 };
 
 export const currentFaves: CurrentFave[] = [

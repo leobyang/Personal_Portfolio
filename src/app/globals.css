@@ -296,9 +296,34 @@
   .panel-in-left { animation: panel-in-left 0.42s cubic-bezier(0.22, 1, 0.36, 1) both; }
   .panel-out-left { animation: panel-out-left 0.3s cubic-bezier(0.55, 0, 1, 0.45) both; }
   .panel-out-right { animation: panel-out-right 0.3s cubic-bezier(0.55, 0, 1, 0.45) both; }
+  /* Close: the post folds back into its star. Text fades first, the panel contracts to
+     a glowing point, then a star flares where it vanished (.close-flare, ~0.85s total). */
   .panel-close {
-    transform-origin: bottom center;
-    animation: panel-close 0.45s cubic-bezier(0.6, -0.28, 0.735, 0.045) both;
+    transform-origin: center;
+    animation: panel-close 0.55s cubic-bezier(0.65, 0, 0.35, 1) both;
+  }
+  .panel-close article {
+    border-style: solid;
+    animation: panel-close-glow 0.55s cubic-bezier(0.33, 1, 0.68, 1) both;
+  }
+  .panel-close .post-scroll,
+  .panel-close > a {
+    animation: panel-fade-out 0.18s ease-out both;
+  }
+  .close-flare {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 140px;
+    height: 140px;
+    margin: -70px 0 0 -70px;
+    pointer-events: none;
+    background:
+      radial-gradient(circle, #fff 0 3px, rgba(255, 240, 190, 0.9) 4px, rgba(255, 240, 190, 0.25) 14px, transparent 36px),
+      linear-gradient(90deg, transparent, rgba(255, 240, 190, 0.75), transparent) center / 100% 2px no-repeat,
+      linear-gradient(0deg, transparent, rgba(255, 240, 190, 0.75), transparent) center / 2px 100% no-repeat;
+    filter: drop-shadow(0 0 10px rgba(255, 240, 190, 0.8));
+    animation: close-flare 0.62s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -308,6 +333,10 @@
     .panel-out-left,
     .panel-out-right,
     .panel-close { animation: panel-fade-out 0.12s linear both; }
+    .panel-close article,
+    .panel-close .post-scroll,
+    .panel-close > a { animation: none; }
+    .close-flare { display: none; }
   }
 }
 
@@ -316,6 +345,71 @@
 @keyframes panel-in-left { from { opacity: 0; transform: translateX(-72px); } to { opacity: 1; transform: none; } }
 @keyframes panel-out-left { to { opacity: 0; transform: translateX(-72px); } }
 @keyframes panel-out-right { to { opacity: 0; transform: translateX(72px); } }
-@keyframes panel-close { to { opacity: 0; transform: translateY(100%) scale(0.5, 0); filter: blur(16px); } }
+@keyframes panel-close {
+  70% { opacity: 1; }
+  to { opacity: 0; transform: scale(0.02); }
+}
+/* The glass drains away, leaving a glowing gold outline that rounds into an orb. */
+@keyframes panel-close-glow {
+  40% {
+    background-color: rgba(9, 12, 25, 0);
+    backdrop-filter: blur(0);
+  }
+  to {
+    border-radius: 50%;
+    border-width: 2px;
+    background-color: rgba(255, 240, 190, 0.35);
+    backdrop-filter: blur(0);
+    border-color: rgba(255, 240, 190, 1);
+    box-shadow: 0 0 60px 12px rgba(255, 240, 190, 0.55), inset 0 0 40px rgba(255, 240, 190, 0.5);
+  }
+}
+@keyframes close-flare {
+  from { opacity: 0; transform: scale(0.2) rotate(-30deg); }
+  35% { opacity: 1; transform: scale(1.15) rotate(0deg); }
+  to { opacity: 0; transform: scale(0.35) rotate(15deg); }
+}
 @keyframes panel-fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes panel-fade-out { to { opacity: 0; } }
+
+/* ---------- Faves ---------- */
+@layer components {
+  .vinyl-disc {
+    background:
+      radial-gradient(circle, transparent 0 30%, #0c0c10 30.5% 33%, transparent 33.5%),
+      repeating-radial-gradient(circle, #101015 0 1.5px, #1a1a21 1.5px 2.5px, #0d0d12 2.5px 3.5px);
+    box-shadow:
+      0 24px 60px -14px rgba(0, 0, 0, 0.8),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+  /* Static light catch on the grooves; sits above the disc so it doesn't spin with it. */
+  .vinyl-sheen {
+    background: conic-gradient(
+      from 20deg,
+      transparent 0deg,
+      rgba(255, 255, 255, 0.09) 25deg,
+      transparent 60deg,
+      transparent 180deg,
+      rgba(255, 255, 255, 0.06) 205deg,
+      transparent 240deg
+    );
+    mask: radial-gradient(circle, transparent 0 33%, #000 33.5%);
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .vinyl-spin {
+      animation: vinyl-spin 3.6s linear infinite;
+    }
+  }
+  @keyframes vinyl-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Outlined chart numerals for the top-5 movies. */
+  .rank-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 240, 190, 0.85);
+  }
+}
