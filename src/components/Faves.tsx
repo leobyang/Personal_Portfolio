@@ -135,11 +135,11 @@ export default function Faves() {
         {movies.length > 0 && (
           <section aria-labelledby="faves-movies">
             <Rule id="faves-movies">Top {movies.length} films, all time</Rule>
-            <ol className="-mx-8 px-8 md:mx-0 md:px-0 flex lg:grid lg:grid-cols-5 gap-6 lg:gap-8 overflow-x-auto lg:overflow-visible snap-x snap-mandatory pb-4 lg:pb-0 [scrollbar-width:none]">
+            <ol className="-mx-8 px-8 scroll-px-8 md:-mx-24 md:px-24 md:scroll-px-24 lg:mx-0 lg:px-0 flex lg:grid lg:grid-cols-5 gap-5 lg:gap-8 overflow-x-auto lg:overflow-visible snap-x snap-mandatory overscroll-x-contain pb-4 lg:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {movies.map((movie) => (
                 <li
                   key={movie.rank}
-                  className="group relative shrink-0 w-[46vw] sm:w-[30vw] md:w-[24vw] lg:w-auto snap-start pl-6 pt-2"
+                  className="group relative shrink-0 w-[44vw] max-w-[220px] sm:w-[30vw] lg:w-auto lg:max-w-none snap-start pl-6 pt-2"
                 >
                   <Poster movie={movie} />
                   <span
