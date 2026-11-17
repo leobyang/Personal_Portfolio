@@ -76,15 +76,19 @@ export default function Faves() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {/* Now playing / last played */}
-          <div className={`${tile} md:col-span-2`}>
+          <div className={`${tile} md:col-span-2 flex flex-col`}>
             <TileHeading>On Spotify</TileHeading>
-            <SpotifyNowPlaying />
+            <div className="flex-1 flex items-center">
+              <div className="w-full">
+                <SpotifyNowPlaying />
+              </div>
+            </div>
           </div>
 
           {/* Currently into */}
           <div className={`${tile} md:col-span-2 lg:col-span-1`}>
             <TileHeading id="faves-current">Currently into</TileHeading>
-            <ul aria-labelledby="faves-current" className="grid grid-cols-2 lg:grid-cols-1 gap-x-4 gap-y-4">
+            <ul aria-labelledby="faves-current" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-x-4 gap-y-4">
               {currentFaves.map((fave) => (
                 <li key={fave.kind} className="flex items-center gap-3 min-w-0">
                   <span className="grid place-items-center w-10 h-10 shrink-0 rounded-full border border-[#FFF0BE]/15">
