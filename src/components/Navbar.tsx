@@ -50,9 +50,21 @@ export default function Navbar() {
           </Link>
           <Link
             className="font-neutraface tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all"
+            href="#faves"
+          >
+            Faves
+          </Link>
+          <Link
+            className="font-neutraface tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all"
             href="#experience"
           >
             Experience
+          </Link>
+          <Link
+            className="font-neutraface tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all"
+            href="#blog"
+          >
+            Writings
           </Link>
           <Link
             className="font-neutraface tracking-tighter uppercase text-sm text-[#FFF0BE]/50 hover:text-[#FFF0BE] transition-all"
@@ -104,10 +116,24 @@ export default function Navbar() {
           </Link>
           <Link
             className="py-3 font-neutraface text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]"
+            href="#faves"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Faves
+          </Link>
+          <Link
+            className="py-3 font-neutraface text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]"
             href="#experience"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Experience
+          </Link>
+          <Link
+            className="py-3 font-neutraface text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]"
+            href="#blog"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Writings
           </Link>
           <Link
             className="py-3 font-neutraface text-lg tracking-widest uppercase text-[#FFF0BE]/70 hover:text-[#FFF0BE]"

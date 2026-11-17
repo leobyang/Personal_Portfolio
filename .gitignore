@@ -30,8 +30,17 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files and local secrets — never commit (only blank .env.example templates)
 .env*
+!.env.example
+!**/.env.example
+.dev.vars
+**/.dev.vars
+worker/.wrangler/
+worker/node_modules/
+
+# generated at build time from Spotify (see scripts/fetch-spotify.mjs)
+src/data/spotify.json
 
 # vercel
 .vercel
