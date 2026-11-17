@@ -2,12 +2,21 @@ import { getSortedPostsData } from "@/lib/blog";
 import StarrySky from "./StarrySky";
 
 export default async function BlogOverview() {
-  const allPosts = getSortedPostsData();
+  const posts = getSortedPostsData().map(({ id, title, date, excerpt, constellation }) => ({
+    id,
+    title,
+    date,
+    excerpt,
+    constellation,
+  }));
 
   return (
-    <section className="py-32 px-8 md:px-24 bg-[#090C19] relative min-h-screen" id="blog">
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="mb-8">
+    <section
+      className="bg-[#090C19] relative min-h-[80vh] flex flex-col"
+      id="blog"
+    >
+      <StarrySky posts={posts}>
+        <div className="max-w-7xl mx-auto w-full">
           <h2 className="font-custom uppercase text-4xl md:text-5xl font-bold tracking-tighter text-white">
             Writings
           </h2>
@@ -16,12 +25,7 @@ export default async function BlogOverview() {
             Explore the sky. Each star represents a thought, project, or learning.
           </p>
         </div>
-      </div>
-      
-      {/* Client component that renders the interactive canvas */}
-      <div className="absolute inset-0 z-0 pt-64">
-        <StarrySky posts={allPosts} />
-      </div>
+      </StarrySky>
     </section>
   );
 }
