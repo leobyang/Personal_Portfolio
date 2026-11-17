@@ -56,12 +56,13 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Fetch Spotify data
-        # Falls back to src/data/spotify.sample.json if secrets are missing or Spotify fails.
+        # Tries Spotify directly, then the Worker's /top route, then src/data/spotify.sample.json.
         run: node scripts/fetch-spotify.mjs
         env:
           SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
           SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
+          NEXT_PUBLIC_NOW_PLAYING_URL: ${{ vars.NEXT_PUBLIC_NOW_PLAYING_URL }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env:
