@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Faves from "@/components/Faves";
 import Experience from "@/components/Experience";
 import Piano from "@/components/piano/Piano";
 import BlogOverview from "@/components/BlogOverview";
@@ -27,6 +28,7 @@ export default function Home() {
       <main className="relative z-10 flex-grow">
         <Hero />
         <About />
+        <Faves />
         <Experience />
         <Piano />
         <BlogOverview />

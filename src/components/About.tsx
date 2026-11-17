@@ -41,7 +41,7 @@ export default function About() {
           <p className="font-neutraface text-lg md:text-xl text-on-surface-variant leading-relaxed text-white">
             I have always loved creating digital systems with a personal impact. Whether that is building
             cool apps or analyzing shifts across the tech industry, I care about making software people
-            genuinely enjoy using. (I am also hopelessly convinced that the "perfect" workflow is always
+            genuinely enjoy using. (I am also hopelessly convinced that the &quot;perfect&quot; workflow is always
             just one more calendar or to-do list app download away.)
             <br />
             <br />
@@ -53,80 +53,6 @@ export default function About() {
             favourites are La La Land and (500) Days of Summer, while my daily soundtrack is almost
             exclusively Taylor Swift, G.E.M., and Gracie Abrams.
           </p>
-
-          <div className="mt-16 w-full">
-            <h4 className="font-neutraface text-sm uppercase tracking-widest text-center text-[#FFF0BE]/70 mb-8">
-              Current Faves
-            </h4>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Book */}
-              <div className="flex flex-col items-center text-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#180164] flex items-center justify-center border border-white/10">
-                  <img
-                    src="/assets/Faves/book.svg"
-                    alt="Book"
-                    className="w-6 h-6 opacity-80"
-                    style={{ filter: "invert(1)" }}
-                  />
-                </div>
-                <div className="font-neutraface text-xs">
-                  <div className="uppercase text-white font-bold tracking-wider leading-relaxed">
-                    A Song to Drown Rivers
-                  </div>
-                  <div className="text-[#e4dfff]/60">Ann Liang</div>
-                </div>
-              </div>
-              {/* Film */}
-              <div className="flex flex-col items-center text-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#180164] flex items-center justify-center border border-white/10">
-                  <img
-                    src="/assets/Faves/film.svg"
-                    alt="Film"
-                    className="w-6 h-6 opacity-80"
-                    style={{ filter: "invert(1)" }}
-                  />
-                </div>
-                <div className="font-neutraface text-xs">
-                  <div className="uppercase text-white font-bold tracking-wider leading-relaxed">
-                    Voicemails for Isabelle
-                  </div>
-                </div>
-              </div>
-              {/* Music */}
-              <div className="flex flex-col items-center text-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#180164] flex items-center justify-center border border-white/10">
-                  <img
-                    src="/assets/Faves/music.svg"
-                    alt="Music"
-                    className="w-6 h-6 opacity-80"
-                    style={{ filter: "invert(1)" }}
-                  />
-                </div>
-                <div className="font-neutraface text-xs">
-                  <div className="uppercase text-white font-bold tracking-wider leading-relaxed">
-                    the cure
-                  </div>
-                  <div className="text-[#e4dfff]/60">Olivia Rodrigo</div>
-                </div>
-              </div>
-              {/* TV */}
-              <div className="flex flex-col items-center text-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#180164] flex items-center justify-center border border-white/10">
-                  <img
-                    src="/assets/Faves/tv.svg"
-                    alt="TV"
-                    className="w-6 h-6 opacity-80"
-                    style={{ filter: "invert(1)" }}
-                  />
-                </div>
-                <div className="font-neutraface text-xs">
-                  <div className="uppercase text-white font-bold tracking-wider leading-relaxed">
-                    Outer Banks
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
