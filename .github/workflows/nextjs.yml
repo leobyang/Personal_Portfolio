@@ -3,6 +3,9 @@ name: Deploy Next.js site to Pages
 on:
   push:
     branches: ["main", "master"]
+  # Daily rebuild so the Spotify top lists stay fresh (09:00 UTC).
+  schedule:
+    - cron: "0 9 * * *"
   workflow_dispatch:
 
 permissions:
@@ -52,8 +55,18 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Fetch Spotify data
+        # Falls back to src/data/spotify.sample.json if secrets are missing or Spotify fails.
+        run: node scripts/fetch-spotify.mjs
+        env:
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        env:
+          # Public Worker URL (not a secret): Settings → Secrets and variables → Actions → Variables
+          NEXT_PUBLIC_NOW_PLAYING_URL: ${{ vars.NEXT_PUBLIC_NOW_PLAYING_URL }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

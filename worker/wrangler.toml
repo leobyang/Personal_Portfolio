@@ -1,0 +1,9 @@
+name = "leoyang-now-playing"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+
+# Non-secret config. Secrets are set with `wrangler secret put` (production)
+# or in worker/.dev.vars (local, gitignored): SPOTIFY_CLIENT_ID,
+# SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN.
+[vars]
+ALLOWED_ORIGINS = "https://leoyang.me,http://localhost:3000"

@@ -1,0 +1,32 @@
+{
+  "source": "sample",
+  "fetchedAt": "2026-11-01T09:00:00.000Z",
+  "topTracks": [
+    { "name": "Sample track one", "artists": ["Sample Artist"], "image": null, "url": null },
+    { "name": "Sample track two", "artists": ["Another Artist"], "image": null, "url": null },
+    { "name": "Sample track three", "artists": ["Sample Artist", "Guest"], "image": null, "url": null },
+    { "name": "Sample track four", "artists": ["Third Artist"], "image": null, "url": null },
+    { "name": "Sample track five", "artists": ["Another Artist"], "image": null, "url": null }
+  ],
+  "topArtists": [
+    { "name": "Sample Artist", "image": null, "url": null },
+    { "name": "Another Artist", "image": null, "url": null },
+    { "name": "Third Artist", "image": null, "url": null },
+    { "name": "Fourth Artist", "image": null, "url": null },
+    { "name": "Fifth Artist", "image": null, "url": null }
+  ],
+  "topAlbums": [
+    { "name": "Sample album one", "artists": ["Sample Artist"], "image": null, "url": null },
+    { "name": "Sample album two", "artists": ["Another Artist"], "image": null, "url": null },
+    { "name": "Sample album three", "artists": ["Third Artist"], "image": null, "url": null },
+    { "name": "Sample album four", "artists": ["Fourth Artist"], "image": null, "url": null },
+    { "name": "Sample album five", "artists": ["Fifth Artist"], "image": null, "url": null }
+  ],
+  "lastPlayed": {
+    "track": "Sample track one",
+    "artists": ["Sample Artist"],
+    "albumArt": null,
+    "url": null,
+    "playedAt": "2026-11-01T08:30:00.000Z"
+  }
+}

@@ -1,0 +1,4 @@
+# Copy to worker/.dev.vars for `npm run dev` (that file is gitignored).
+SPOTIFY_CLIENT_ID=
+SPOTIFY_CLIENT_SECRET=
+SPOTIFY_REFRESH_TOKEN=
