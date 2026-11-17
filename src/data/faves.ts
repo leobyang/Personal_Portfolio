@@ -26,8 +26,7 @@ export const currentFaves: CurrentFave[] = [
 export const topMovies: TopMovie[] = [
   { rank: 1, title: "La La Land", year: 2016 },
   { rank: 2, title: "(500) Days of Summer", year: 2009 },
-  // TODO(Leo): fill in #3–#5. Entries with title "TODO" are hidden on the site.
-  { rank: 3, title: "TODO", year: null },
-  { rank: 4, title: "TODO", year: null },
-  { rank: 5, title: "TODO", year: null },
+  { rank: 3, title: "后来的我们", year: 2018 },
+  { rank: 4, title: "The Social Network", year: 2010 },
+  { rank: 5, title: "The Perks of being a Wallflower", year: 2012 },
 ];
