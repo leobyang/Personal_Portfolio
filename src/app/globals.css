@@ -120,3 +120,202 @@
       background-color: transparent !important;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Planetarium post page                                               */
+/* ------------------------------------------------------------------ */
+
+@layer components {
+  .post-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 240, 190, 0.28) transparent;
+  }
+  .post-scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+  .post-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 240, 190, 0.25);
+    border-radius: 999px;
+  }
+  .post-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .post-prose {
+    font-family: var(--font-neutraface);
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75;
+    color: #e9e6ff;
+    overflow-wrap: break-word;
+  }
+  @media (min-width: 768px) {
+    .post-prose {
+      font-size: 1.1875rem; /* 19px */
+    }
+  }
+  .post-prose > :first-child {
+    margin-top: 0;
+  }
+  .post-prose p,
+  .post-prose ul,
+  .post-prose ol,
+  .post-prose blockquote,
+  .post-prose pre,
+  .post-prose figure,
+  .post-prose img {
+    margin: 0 0 1.35em;
+  }
+  .post-prose h2 {
+    font-family: var(--font-custom);
+    font-weight: 400;
+    font-size: 1.75em;
+    line-height: 1.2;
+    color: #fff;
+    margin: 2em 0 0.6em;
+    text-wrap: balance;
+  }
+  .post-prose h3 {
+    font-family: var(--font-neutraface);
+    font-weight: 600;
+    font-size: 1.2em;
+    line-height: 1.35;
+    color: #fff;
+    margin: 1.8em 0 0.5em;
+  }
+  .post-prose h4 {
+    font-weight: 600;
+    color: #fff;
+    margin: 1.5em 0 0.4em;
+  }
+  .post-prose strong {
+    color: #fff;
+    font-weight: 600;
+  }
+  .post-prose a {
+    color: #fff0be;
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgba(255, 240, 190, 0.45);
+    transition: text-decoration-color 0.2s ease;
+  }
+  .post-prose a:hover,
+  .post-prose a:focus-visible {
+    text-decoration-color: #fff0be;
+  }
+  .post-prose ul,
+  .post-prose ol {
+    padding-left: 1.4em;
+  }
+  .post-prose ul {
+    list-style: disc;
+  }
+  .post-prose ol {
+    list-style: decimal;
+  }
+  .post-prose li {
+    margin: 0.35em 0;
+    padding-left: 0.25em;
+  }
+  .post-prose li::marker {
+    color: rgba(255, 240, 190, 0.65);
+  }
+  .post-prose blockquote {
+    border-left: 2px solid #f1e2b1;
+    padding: 0.1em 0 0.1em 1.1em;
+    font-style: italic;
+    color: #f2efff;
+  }
+  .post-prose blockquote > :last-child {
+    margin-bottom: 0;
+  }
+  .post-prose code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.85em;
+    background: rgba(255, 240, 190, 0.08);
+    border: 1px solid rgba(255, 240, 190, 0.1);
+    border-radius: 6px;
+    padding: 0.12em 0.4em;
+    color: #fff4d6;
+  }
+  .post-prose pre {
+    background: #0b0f22;
+    border: 1px solid rgba(255, 240, 190, 0.1);
+    border-radius: 14px;
+    padding: 1em 1.2em;
+    overflow-x: auto;
+    max-width: 100%;
+    line-height: 1.6;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 240, 190, 0.25) transparent;
+  }
+  .post-prose pre code {
+    background: none;
+    border: 0;
+    padding: 0;
+    font-size: 0.85em;
+    color: #e9e6ff;
+    white-space: pre;
+  }
+  .post-prose img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+  .post-prose hr {
+    border: 0;
+    height: auto;
+    margin: 2.5em 0;
+    text-align: center;
+    line-height: 1;
+  }
+  .post-prose hr::after {
+    content: "✦ ✦ ✦";
+    color: rgba(255, 240, 190, 0.6);
+    letter-spacing: 0.9em;
+    padding-left: 0.9em;
+    font-size: 0.75em;
+  }
+  .post-prose table {
+    display: block;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin: 0 0 1.35em;
+  }
+  .post-prose th,
+  .post-prose td {
+    border-bottom: 1px solid rgba(255, 240, 190, 0.12);
+    padding: 0.5em 0.8em;
+    text-align: left;
+  }
+
+  /* Panel transitions */
+  .panel-in-rise { animation: panel-in-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .panel-in-right { animation: panel-in-right 0.42s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .panel-in-left { animation: panel-in-left 0.42s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .panel-out-left { animation: panel-out-left 0.3s cubic-bezier(0.55, 0, 1, 0.45) both; }
+  .panel-out-right { animation: panel-out-right 0.3s cubic-bezier(0.55, 0, 1, 0.45) both; }
+  .panel-close {
+    transform-origin: bottom center;
+    animation: panel-close 0.45s cubic-bezier(0.6, -0.28, 0.735, 0.045) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .panel-in-rise,
+    .panel-in-right,
+    .panel-in-left { animation: panel-fade-in 0.16s linear both; }
+    .panel-out-left,
+    .panel-out-right,
+    .panel-close { animation: panel-fade-out 0.12s linear both; }
+  }
+}
+
+@keyframes panel-in-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes panel-in-right { from { opacity: 0; transform: translateX(72px); } to { opacity: 1; transform: none; } }
+@keyframes panel-in-left { from { opacity: 0; transform: translateX(-72px); } to { opacity: 1; transform: none; } }
+@keyframes panel-out-left { to { opacity: 0; transform: translateX(-72px); } }
+@keyframes panel-out-right { to { opacity: 0; transform: translateX(72px); } }
+@keyframes panel-close { to { opacity: 0; transform: translateY(100%) scale(0.5, 0); filter: blur(16px); } }
+@keyframes panel-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes panel-fade-out { to { opacity: 0; } }

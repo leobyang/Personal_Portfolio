@@ -1,20 +1,28 @@
-import { getPostData, getSortedPostsData } from "@/lib/blog";
-import Planetarium from "@/components/Planetarium";
+import type { Metadata } from "next";
+import { getAdjacentPosts, getPostData, getSortedPostsData } from "@/lib/blog";
+import PostPanel from "@/components/planetarium/PostPanel";
+
+type Props = { params: Promise<{ id: string }> };
+
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  const posts = getSortedPostsData();
-  return posts.map((post) => ({
-    id: post.id,
-  }));
+  return getSortedPostsData().map((post) => ({ id: post.id }));
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<{ id: string }> }) {
-  const p = await params;
-  const postData = await getPostData(p.id);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const post = getSortedPostsData().find((p) => p.id === id);
+  if (!post) return {};
+  return {
+    title: `${post.title} · Leo Yang`,
+    description: post.excerpt,
+    openGraph: { title: post.title, description: post.excerpt, type: "article" },
+  };
+}
 
-  return (
-    <main className="w-screen h-screen overflow-hidden bg-[#090C19] relative">
-      <Planetarium post={postData} />
-    </main>
-  );
+export default async function BlogPostPage({ params }: Props) {
+  const { id } = await params;
+  const [post, { prev, next }] = [await getPostData(id), getAdjacentPosts(id)];
+  return <PostPanel post={post} prev={prev} next={next} />;
 }
