@@ -297,7 +297,7 @@
   .panel-out-left { animation: panel-out-left 0.3s cubic-bezier(0.55, 0, 1, 0.45) both; }
   .panel-out-right { animation: panel-out-right 0.3s cubic-bezier(0.55, 0, 1, 0.45) both; }
   /* Close: the post folds back into its star. Text fades first, the panel contracts to
-     a glowing point, then a star flares where it vanished (.close-flare, ~0.85s total). */
+     a glowing point; <StarTransition /> then carries the star back to the sky. */
   .panel-close {
     transform-origin: center;
     animation: panel-close 0.55s cubic-bezier(0.65, 0, 0.35, 1) both;
@@ -310,20 +310,31 @@
   .panel-close > a {
     animation: panel-fade-out 0.18s ease-out both;
   }
-  .close-flare {
-    position: absolute;
-    left: 50%;
-    top: 50%;
+  /* Four-point star carried between pages by <StarTransition />. Positioned with transform. */
+  .star-flare {
     width: 140px;
     height: 140px;
     margin: -70px 0 0 -70px;
-    pointer-events: none;
+    will-change: transform, opacity;
     background:
       radial-gradient(circle, #fff 0 3px, rgba(255, 240, 190, 0.9) 4px, rgba(255, 240, 190, 0.25) 14px, transparent 36px),
       linear-gradient(90deg, transparent, rgba(255, 240, 190, 0.75), transparent) center / 100% 2px no-repeat,
       linear-gradient(0deg, transparent, rgba(255, 240, 190, 0.75), transparent) center / 2px 100% no-repeat;
     filter: drop-shadow(0 0 10px rgba(255, 240, 190, 0.8));
-    animation: close-flare 0.62s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+  }
+
+  /* Open: the reverse of close. A gold ring blooms out of the star and becomes the panel. */
+  .panel-open {
+    transform-origin: center;
+    animation: panel-open 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .panel-open article {
+    border-style: solid;
+    animation: panel-open-glow 0.75s cubic-bezier(0.33, 1, 0.68, 1) both;
+  }
+  .panel-open .post-scroll,
+  .panel-open > a {
+    animation: panel-fade-in 0.35s ease-out 0.42s both;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -333,10 +344,13 @@
     .panel-out-left,
     .panel-out-right,
     .panel-close { animation: panel-fade-out 0.12s linear both; }
+    .panel-open { animation: panel-fade-in 0.16s linear both; }
     .panel-close article,
     .panel-close .post-scroll,
-    .panel-close > a { animation: none; }
-    .close-flare { display: none; }
+    .panel-close > a,
+    .panel-open article,
+    .panel-open .post-scroll,
+    .panel-open > a { animation: none; }
   }
 }
 
@@ -364,10 +378,24 @@
     box-shadow: 0 0 60px 12px rgba(255, 240, 190, 0.55), inset 0 0 40px rgba(255, 240, 190, 0.5);
   }
 }
-@keyframes close-flare {
-  from { opacity: 0; transform: scale(0.2) rotate(-30deg); }
-  35% { opacity: 1; transform: scale(1.15) rotate(0deg); }
-  to { opacity: 0; transform: scale(0.35) rotate(15deg); }
+@keyframes panel-open {
+  from { opacity: 0; transform: scale(0.02); }
+  12% { opacity: 1; }
+  to { opacity: 1; transform: none; }
+}
+@keyframes panel-open-glow {
+  from {
+    border-radius: 50%;
+    border-width: 2px;
+    background-color: rgba(255, 240, 190, 0.35);
+    backdrop-filter: blur(0);
+    border-color: rgba(255, 240, 190, 1);
+    box-shadow: 0 0 60px 12px rgba(255, 240, 190, 0.55), inset 0 0 40px rgba(255, 240, 190, 0.5);
+  }
+  55% {
+    background-color: rgba(9, 12, 25, 0);
+    backdrop-filter: blur(0);
+  }
 }
 @keyframes panel-fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes panel-fade-out { to { opacity: 0; } }

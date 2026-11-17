@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import StarTransition from "@/components/transition/StarTransition";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="flex flex-col no-scrollbar">
         {children}
+        <StarTransition />
       </body>
     </html>
   );

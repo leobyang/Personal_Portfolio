@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   useEffect,
   useMemo,
@@ -12,6 +13,7 @@ import {
   type ReactNode,
 } from "react";
 import { buildSky, type SkyPostInput } from "@/lib/sky";
+import { hasStarOverlay, playOpen } from "@/components/transition/starStore";
 
 const HIT_RADIUS = 22; // px; links are 44×44 around each star
 const GLOW_TIME_CONSTANT = 65; // ms; ≈95% of the way in ~200 ms
@@ -51,6 +53,8 @@ export default function StarrySky({ posts, children }: { posts: SkyPostInput[]; 
   const activeRef = useRef<string | null>(null);
   const kickRef = useRef<() => void>(() => {});
   const lastPointerType = useRef<string>("mouse");
+  const router = useRouter();
+  const opening = useRef(false);
 
   const activate = (id: string | null) => {
     activeRef.current = id;
@@ -233,8 +237,26 @@ export default function StarrySky({ posts, children }: { posts: SkyPostInput[]; 
     if (lastPointerType.current === "touch" && activeRef.current !== id) {
       e.preventDefault();
       activate(id);
+      return;
     }
     lastPointerType.current = "mouse";
+
+    // Open with the star transition: the star lifts out of the sky and blooms into the post.
+    // Modified clicks (new tab etc.) and reduced motion keep the plain link behaviour.
+    const plain = e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey;
+    if (!plain || reducedMotion || !hasStarOverlay()) return;
+    e.preventDefault();
+    if (opening.current) return;
+    opening.current = true;
+    const href = `/blog/${id}`;
+    router.prefetch(href);
+    // Start loading the planetarium (three.js) while the star is still travelling.
+    void import("@/components/planetarium/DomeScene");
+    const r = e.currentTarget.getBoundingClientRect();
+    void playOpen(r.left + r.width / 2, r.top + r.height / 2).then(() => {
+      router.push(href);
+      opening.current = false;
+    });
   };
 
   const activeGroup = activeId ? sky.stars.find((s) => s.post.id === activeId)?.group ?? -1 : -1;
@@ -302,6 +324,7 @@ export default function StarrySky({ posts, children }: { posts: SkyPostInput[]; 
             <li key={s.post.id} className="contents">
               <Link
                 href={`/blog/${s.post.id}`}
+                data-post-star={s.post.id}
                 aria-label={`${s.post.title}, ${formatDate(s.post.date)}`}
                 className="absolute rounded-full outline-none focus-visible:ring-1 focus-visible:ring-[#FFF0BE]/40 [-webkit-tap-highlight-color:transparent]"
                 style={{

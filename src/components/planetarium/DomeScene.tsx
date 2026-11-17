@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useMemo, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { mulberry32 } from "@/lib/sky";
-import { onDomeNudge } from "./domeStore";
+import { onDomeNudge, setDomeReady } from "./domeStore";
 import { glowTexture, nebulaTexture, shaftTexture } from "./textures";
 
 const SKY_RADIUS = 80;
@@ -324,6 +324,23 @@ function Rig({ animate, children }: { animate: boolean; children: React.ReactNod
   );
 }
 
+/** Reports readiness after a couple of rendered frames (shaders compiled, textures uploaded). */
+function ReadySignal() {
+  const frames = useRef(0);
+  const invalidate = useThree((state) => state.invalidate);
+  useEffect(() => {
+    // With frameloop="demand" (reduced motion) make sure those frames actually happen.
+    invalidate();
+    return () => setDomeReady(false);
+  }, [invalidate]);
+  useFrame(() => {
+    frames.current += 1;
+    if (frames.current === 2) setDomeReady(true);
+    if (frames.current < 2) invalidate();
+  });
+  return null;
+}
+
 export default function DomeScene({ animate, paused }: { animate: boolean; paused: boolean }) {
   return (
     <Canvas
@@ -334,6 +351,7 @@ export default function DomeScene({ animate, paused }: { animate: boolean; pause
       aria-hidden="true"
     >
       <color attach="background" args={["#090C19"]} />
+      <ReadySignal />
       <DomeShell />
       <Rig animate={animate}>
         <Nebulae />

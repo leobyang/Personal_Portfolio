@@ -27,3 +27,29 @@ export function setEnterDirection(dir: Direction | 0) {
 export function peekEnterDirection(): Direction | 0 {
   return enterDirection;
 }
+
+// Ready = the dome has drawn its first frames (shaders compiled). The star-open
+// transition waits for this so WebGL start-up doesn't stutter the panel animation.
+let domeReady = false;
+const readyListeners = new Set<() => void>();
+
+export function setDomeReady(ready: boolean) {
+  domeReady = ready;
+  if (ready) readyListeners.forEach((listener) => listener());
+}
+
+/** Calls `listener` once the dome is ready (immediately if it already is). */
+export function onDomeReady(listener: () => void) {
+  if (domeReady) {
+    listener();
+    return () => {};
+  }
+  const once = () => {
+    readyListeners.delete(once);
+    listener();
+  };
+  readyListeners.add(once);
+  return () => {
+    readyListeners.delete(once);
+  };
+}

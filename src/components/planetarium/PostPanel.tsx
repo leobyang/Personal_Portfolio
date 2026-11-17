@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, type MouseEvent, type PointerEvent } from "react";
 import type { AdjacentPost, BlogPost } from "@/lib/blog";
-import { nudgeDome, peekEnterDirection, setEnterDirection, type Direction } from "./domeStore";
+import { nudgeDome, onDomeReady, peekEnterDirection, setEnterDirection, type Direction } from "./domeStore";
+import { arrivedAtPost, hasStarOverlay, peekOpening, playClose } from "@/components/transition/starStore";
 
 type Phase = "idle" | "leave-left" | "leave-right" | "closing";
 
@@ -61,10 +62,36 @@ export default function PostPanel({
   const [phase, setPhase] = useState<Phase>("idle");
   // Read (don't consume) so StrictMode's double render sees the same value; cleared in an effect.
   const [enterFrom] = useState(() => peekEnterDirection());
+  // Arriving from a star in the sky: bloom out of the star instead of rising in.
+  const [fromStar] = useState(() => peekOpening());
+  // When arriving from a star, stay hidden under the overlay until the dome has started
+  // (WebGL start-up would otherwise stutter the bloom), then open.
+  const [revealed, setRevealed] = useState(() => !fromStar);
   const panelRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const busy = useRef(false);
   const swipe = useRef<{ x: number; y: number; id: number } | null>(null);
+
+  useEffect(() => {
+    if (!fromStar) return;
+    let done = false;
+    let raf = 0;
+    const reveal = () => {
+      if (done) return;
+      done = true;
+      raf = requestAnimationFrame(() => {
+        setRevealed(true);
+        arrivedAtPost();
+      });
+    };
+    const unsubscribe = onDomeReady(reveal);
+    const fallback = window.setTimeout(reveal, 900);
+    return () => {
+      unsubscribe();
+      window.clearTimeout(fallback);
+      cancelAnimationFrame(raf);
+    };
+  }, [fromStar]);
 
   useEffect(() => {
     setEnterDirection(0);
@@ -92,14 +119,21 @@ export default function PostPanel({
     if (busy.current) return;
     busy.current = true;
     setPhase("closing");
-    window.setTimeout(() => {
+    const backToSky = () => {
       // Jump straight to the sky instead of smooth-scrolling down the whole homepage.
       document.documentElement.style.scrollBehavior = "auto";
       router.push("/#blog");
       window.setTimeout(() => {
         document.documentElement.style.scrollBehavior = "";
       }, 500);
-    }, prefersReducedMotion() ? 120 : 900);
+    };
+    if (prefersReducedMotion() || !hasStarOverlay()) {
+      window.setTimeout(backToSky, 120);
+    } else {
+      // The overlay covers the page once the panel has become a star, then flies the
+      // star to this post's place in the sky after navigation.
+      void playClose(post.id).then(backToSky);
+    }
   };
 
   // Keep the latest handlers for the window listener without re-subscribing.
@@ -155,7 +189,11 @@ export default function PostPanel({
         ? "panel-out-right"
         : phase === "closing"
           ? "panel-close"
-          : enterFrom === 1
+          : !revealed
+            ? "opacity-0"
+            : fromStar
+              ? "panel-open"
+            : enterFrom === 1
             ? "panel-in-right"
             : enterFrom === -1
               ? "panel-in-left"
@@ -166,7 +204,6 @@ export default function PostPanel({
 
   return (
     <div className="fixed inset-0 z-10 flex items-center justify-center md:p-8 pointer-events-none">
-      {phase === "closing" && <div aria-hidden="true" className="close-flare" />}
       <div ref={panelRef} className={`relative pointer-events-auto w-full h-[100dvh] md:h-[85vh] md:max-w-[52rem] ${animation}`}>
         {prev && (
           <Link
