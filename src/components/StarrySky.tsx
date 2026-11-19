@@ -259,6 +259,12 @@ export default function StarrySky({ posts, children }: { posts: SkyPostInput[]; 
     });
   };
 
+  // The newest post's star pulses so new writing gets noticed.
+  const newestId = sky.stars.reduce<(typeof sky.stars)[number] | null>(
+    (best, s) => (!best || new Date(s.post.date) > new Date(best.post.date) ? s : best),
+    null,
+  )?.post.id;
+
   const activeGroup = activeId ? sky.stars.find((s) => s.post.id === activeId)?.group ?? -1 : -1;
   const labelStar = labelId ? sky.stars.find((s) => s.post.id === labelId) : undefined;
 
@@ -325,7 +331,7 @@ export default function StarrySky({ posts, children }: { posts: SkyPostInput[]; 
               <Link
                 href={`/blog/${s.post.id}`}
                 data-post-star={s.post.id}
-                aria-label={`${s.post.title}, ${formatDate(s.post.date)}`}
+                aria-label={`${s.post.id === newestId ? "Newest: " : ""}${s.post.title}, ${formatDate(s.post.date)}`}
                 className="absolute rounded-full outline-none focus-visible:ring-1 focus-visible:ring-[#FFF0BE]/40 [-webkit-tap-highlight-color:transparent]"
                 style={{
                   left: `calc(${s.x * 100}% - ${HIT_RADIUS}px)`,
@@ -349,7 +355,14 @@ export default function StarrySky({ posts, children }: { posts: SkyPostInput[]; 
                   if (e.key === "Escape") (e.currentTarget as HTMLElement).blur();
                 }}
                 onClick={(e) => onClick(e, s.post.id)}
-              />
+              >
+                {s.post.id === newestId && (
+                  <span
+                    aria-hidden="true"
+                    className={`new-star-pulse ${activeId === s.post.id ? "opacity-0" : ""}`}
+                  />
+                )}
+              </Link>
             </li>
           ))}
         </ul>

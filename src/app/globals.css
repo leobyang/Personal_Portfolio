@@ -441,3 +441,51 @@
     -webkit-text-stroke: 1.5px rgba(255, 240, 190, 0.85);
   }
 }
+
+/* Newest post's star in the sky: a soft gold ring that breathes out from it. */
+.new-star-pulse {
+  position: absolute;
+  inset: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.new-star-pulse::before,
+.new-star-pulse::after {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: -14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 240, 190, 0.8);
+  box-shadow: 0 0 10px rgba(255, 240, 190, 0.5);
+  opacity: 0;
+}
+.new-star-pulse::after {
+  border: 0;
+  left: -5px;
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, rgba(255, 240, 190, 0.9), rgba(255, 240, 190, 0) 70%);
+  opacity: 0.7;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .new-star-pulse::before {
+    animation: new-star-ring 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+  .new-star-pulse::after {
+    animation: new-star-blink 2.4s ease-in-out infinite;
+  }
+}
+@keyframes new-star-ring {
+  0% { transform: scale(0.2); opacity: 0.9; }
+  70%, 100% { transform: scale(1.6); opacity: 0; }
+}
+@keyframes new-star-blink {
+  0%, 100% { opacity: 0.35; transform: scale(0.8); }
+  15% { opacity: 1; transform: scale(1.5); }
+}
